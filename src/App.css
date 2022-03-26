@@ -1,1 +1,10 @@
 
+.header {
+    background-color: #dbdbdb;
+    padding: 3rem;
+}
+
+.slider {
+    background-color: rgb(85, 85, 85);
+    padding: 13rem;
+}
