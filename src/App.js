@@ -1,5 +1,7 @@
 import './App.css';
+import './styles/sass/Header.scss'
 import Footer from "./components/Footer";
+import Navigation from "./components/Navigation"
 
 function App() {
   const credits = {
@@ -8,7 +10,9 @@ function App() {
   };
   return (
     <>
-      <header className='header'> Hello World</header>
+      <header className='header'>
+        <Navigation/>
+      </header>
       <main className='slider'>
         <div>
           <p>Slider</p>
