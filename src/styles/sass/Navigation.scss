@@ -8,44 +8,87 @@
   width: 100vw;
   gap: 0.8rem;
   background-color: white;
-  
+
+  @media (min-width: 390px) {
+    padding: 0 20px;
+  }
+
+  @media (min-width: 480px) {
+    gap: 1.4rem;
+  }
+
+  @media (min-width: 980px) {
+    grid-template-columns: max-content;
+  }
+
   &__button-menu {
     display: flex;
     font-size: 1.75rem;
     color: #ff0000;
+    @media (min-width: 480px) {
+      font-size: 1.9rem;
+    }
+
+    @media (min-width: 980px) {
+      display: none;
+    }
 
     &.active {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
+
+      @media (min-width: 480px) {
+        font-size: 2.4rem;
+      }
     }
   }
-  
+
   &__logo-container {
     height: 30px;
     width: 189px;
+
+    @media (min-width: 390px) {
+      width: 200px;
+    }
+
+    @media (min-width: 610px) {
+      width: auto;
+    }
   }
-  
+
   &__logo {
     height: inherit;
   }
-  
+
   &__button-login {
     padding: 9px 13px;
     display: flex;
     justify-self: flex-end;
     background-color: #ff0000;
     border-radius: 3px;
-    
+
+    @media (min-width: 480px) {
+      padding: 9px 18px;
+    }
+
+    @media (min-width: 610px) {
+      padding: 9px 32px;
+    }
+
     &-text {
-      font-family: silka-semibold,Helvetica,Arial,sans-serif;
+      font-family: silka-semibold, Helvetica, Arial, sans-serif;
       color: white;
       font-size: 12px;
       font-weight: 600;
       line-height: 1.42857143;
+
+      @media (min-width: 610px) {
+        font-size: 13px;
+      }
     }
   }
 
   &__menu {
-    width: calc(100% - 70px);
+    width: 80%;
     height: 100vh;
     position: absolute;
     transform: translatex(-100%);
@@ -56,7 +99,43 @@
     box-shadow: inset -8px 12px 13px rgb(0 0 0 / 32%);
     display: grid;
     grid-template-rows: min-content min-content 1fr min-content;
-    
+
+    @media (min-width: 450px) {
+      width: 78%;
+    }
+
+    @media (min-width: 500px) {
+      width: 70%;
+    }
+
+    @media (min-width: 550px) {
+      width: 65%;
+    }
+
+    @media (min-width: 600px) {
+      width: 55%;
+    }
+
+    @media (min-width: 650px) {
+      width: 50%;
+    }
+
+    @media (min-width: 700px) {
+      width: 45%;
+    }
+
+    @media (min-width: 750px) {
+      width: 40%;
+    }
+
+    @media (min-width: 800px) {
+      width: 35%;
+    }
+
+    @media (min-width: 980px) {
+      display: none;
+    }
+
     &-image-container {
       box-shadow: inset -14px 0 18px -10px rgb(0 0 0 / 32%);
       background-color: white;
@@ -68,7 +147,6 @@
     }
 
     &-image {
-      
     }
 
     &-list {
@@ -79,28 +157,31 @@
 
       &-item {
         padding: 10px 16px;
-        font-family: silka-medium,Helvetica,Arial,sans-serif;
+        font-family: silka-medium, Helvetica, Arial, sans-serif;
         font-size: 17px;
         line-height: 1.42857143;
-        
       }
     }
-    
+
     &-link {
     }
-    
+
     &-recognitin {
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
       align-self: flex-end;
-      
+
       &-title {
-        font-family: silka-medium,Helvetica,Arial,sans-serif;
+        font-family: silka-medium, Helvetica, Arial, sans-serif;
         font-size: 17px;
         line-height: 1.42857143;
         margin-bottom: 8px;
+
+        @media (min-width: 370px) {
+          font-size: 19px;
+        }
       }
 
       &-list {
@@ -130,7 +211,6 @@
       &-link {
         height: 50px;
       }
-      
     }
 
     &-follow {
@@ -141,10 +221,14 @@
       // align-self: flex-end;
 
       &-title {
-        font-family: silka-medium,Helvetica,Arial,sans-serif;
+        font-family: silka-medium, Helvetica, Arial, sans-serif;
         font-size: 17px;
         line-height: 1.42857143;
         margin-bottom: 12px;
+
+        @media (min-width: 370px) {
+          font-size: 19px;
+        }
       }
 
       &-list {
@@ -172,6 +256,33 @@
         color: #3b3d40;
         font-size: 1.4rem;
       }
+    }
+  }
+
+  &__menu-hidden {
+    display: none;
+
+    @media (min-width: 980px) {
+      display: flex;
+
+      &-list {
+        display: flex;
+        gap: 1.2rem;
+
+        @media (min-width: 1070px) {
+          gap: 1.75rem;
+        }
+      }
+
+      &-link {
+        padding: 26px 15px 23px;
+        font-family: silka-semibold, Helvetica, Arial, sans-serif;
+        color: #444;
+        font-size: 14px;
+      }
+    }
+    @media (min-width: 1070px) {
+      margin-left: 1.7rem;
     }
   }
 }
