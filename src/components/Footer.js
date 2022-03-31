@@ -1,12 +1,7 @@
-
-import '../styles/css/Footer.css';
-const Footer = ({ credits }) => {
-    const { author, currentYear } = credits;
+const Footer = () => {
     return ( 
-        <footer className="footer animate__animated animate__fadeIn">
-            <div className="footer-container">
-                <h2 className="footer__credits">🦄Copyright &copy; {currentYear} {author}. Todos los derechos reservados.🦄</h2>
-            </div>
+        <footer>
+            Footer
         </footer>
     );
 }

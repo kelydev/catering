@@ -1,4 +1,4 @@
-import "../styles/sass/Carousel.scss";
+import "../styles/sass/_carousel.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 

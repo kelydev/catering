@@ -1,4 +1,7 @@
-import "../styles/sass/Navigation.scss";
+import {
+  NavLink
+} from 'react-router-dom';
+import "../styles/sass/_navigation.scss";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, brands } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -32,11 +35,13 @@ export default function Navigation() {
           }
         </button>
         <div className="nav__logo-container">
-          <img
-            className="nav__logo"
-            src="https://www.mariaalmenara.pe/_nuxt/img/163c1e9.svg"
-            alt="Logo"
-          />
+          <NavLink to="/" className="#">
+            <img
+              className="nav__logo"
+              src="https://www.mariaalmenara.pe/_nuxt/img/163c1e9.svg"
+              alt="Logo"
+            />
+          </NavLink>
         </div>
         <section className="nav__menu" id="navMenu">
           <div className="nav__menu-image-container">
@@ -124,9 +129,15 @@ export default function Navigation() {
         </section>
         <section className="nav__menu-hidden">
           <ul className="nav__menu-hidden-list">
-            <li className="nav__menu-hidden-list-item"><a className="nav__menu-hidden-link" href="/">nuestra carta</a></li>
-            <li className="nav__menu-hidden-list-item"><a className="nav__menu-hidden-link" href="/">blog</a></li>
-            <li className="nav__menu-hidden-list-item"><a className="nav__menu-hidden-link" href="/">nuestras tiendas</a></li>
+            <li className="nav__menu-hidden-list-item">
+              <NavLink to="/cartainfo" className="nav__menu-hidden-link">nuestra carta</NavLink>
+            </li>
+            <li className="nav__menu-hidden-list-item">
+              <NavLink to="/blog" className="nav__menu-hidden-link">blog</NavLink>
+            </li>
+            <li className="nav__menu-hidden-list-item">
+              <NavLink to="/locales" className="nav__menu-hidden-link">nuestras tiendas</NavLink>
+            </li>
           </ul>
         </section>
         <button className="nav__button-login">
