@@ -1,5 +1,3 @@
-
-import '../styles/css/Footer.css';
 const Footer = ({ credits }) => {
     const { author, currentYear } = credits;
     return ( 
