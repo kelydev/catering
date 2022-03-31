@@ -2,6 +2,7 @@ import './App.css';
 import './styles/sass/Header.scss'
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation"
+import Carousel from "./components/Carousel"
 
 function App() {
   const credits = {
@@ -15,7 +16,7 @@ function App() {
       </header>
       <main className='slider'>
         <div>
-          <p>Slider</p>
+          <Carousel />
         </div>
       </main>
       <Footer
