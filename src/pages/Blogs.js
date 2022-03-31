@@ -1,8 +1,8 @@
-import "../styles/sass/_blog.scss";
+import React from 'react'
 
-const Blog = () => {
-    return (
-        <>
+export default function Blogs() {
+  return (
+    <>
             <div className="row justify-content-evenly pt-5 m-0">
                 <div className="card col-12 col-lg-3" >
                     <img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" className="card-img-top img-size-blog"  alt="cake"/>
@@ -56,7 +56,5 @@ const Blog = () => {
                 </div>
             </div>
         </>
-      );
+  )
 }
- 
-export default Blog;
