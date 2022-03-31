@@ -8,7 +8,7 @@ export default function Navigation() {
 
   const openMenu = (e) => {
     const body = document.getElementById("body");
-    const buttonMenu = document.getElementById("navMenu");
+    const buttonMenu = document.getElementById("buttonMenu");
     const navMenu = document.getElementById("navMenu");
 
     buttonMenu.classList.toggle("active");
@@ -121,6 +121,13 @@ export default function Navigation() {
               </li>
             </ul>
           </div>
+        </section>
+        <section className="nav__menu-hidden">
+          <ul className="nav__menu-hidden-list">
+            <li className="nav__menu-hidden-list-item"><a className="nav__menu-hidden-link" href="/">nuestra carta</a></li>
+            <li className="nav__menu-hidden-list-item"><a className="nav__menu-hidden-link" href="/">blog</a></li>
+            <li className="nav__menu-hidden-list-item"><a className="nav__menu-hidden-link" href="/">nuestras tiendas</a></li>
+          </ul>
         </section>
         <button className="nav__button-login">
           <span className="nav__button-login-text">¡pide aqui!</span>
