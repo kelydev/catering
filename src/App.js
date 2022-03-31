@@ -19,6 +19,8 @@ function App() {
           <Route path="carta" element={<Carta />}/>
           <Route path="locales" element={<Locales />}/>
           <Route path="blog" element={<Blogs />}/>
+          <Route path="login" element={<Login />}/>
+          <Route path="*" element={<NotFound />}/>
         </Route>
       </Routes>
       <Footer />
