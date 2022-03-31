@@ -1,9 +1,8 @@
-const NotFound = () => {
-    return (
-        <>
-          <h1>NotFound</h1>
-        </>
-      );
+import React from 'react'
+
+export default function NotFound() {
+  return (
+    <h1>NotFound</h1>
+  )
 }
- 
-export default NotFound;
+

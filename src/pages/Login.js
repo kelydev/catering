@@ -1,9 +1,7 @@
-const Login = () => {
-    return (
-        <>
-        <h1>Login</h1>
-        </>
-      );
+import React from 'react'
+
+export default function LogIn() {
+  return (
+    <h1>LogIn</h1>
+  )
 }
- 
-export default Login;
