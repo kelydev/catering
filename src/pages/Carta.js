@@ -10,11 +10,9 @@ const Carta = () => {
 
     return (
       <section className="productos">
-        <div className="container">
-          <h2>Lista de Productos</h2>
-          <div className="container__card row">
+          <div className="container__card">
             {producto.map(productos => (
-              <div className="card-product col-md-4 col-lg-3">
+              <div className="card-product">
                 <img src={productos.urlImage} alt="helado" class="card-product__img"/>
                 <div class="card-product__body">
                   <h4 class="card-product__title"><b>{productos.name}</b></h4> 
@@ -25,7 +23,7 @@ const Carta = () => {
               </div>   
             ))}
           </div>
-        </div>
+       
       </section>
     );
 }
