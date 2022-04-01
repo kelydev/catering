@@ -1,0 +1,56 @@
+.productos {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.card-product {
+    background-color: #ffffff;
+    box-shadow: 0.6em 0.6em 1.2em rgb(0 0 0 / 5%);
+    transition: 0.3s;
+    max-width: 265px;
+    padding: 10px 15px 15px;
+    margin: 20px 10px;
+    width: 100%;
+    border-radius: 0px;
+    justify-content: center;
+}
+
+.card-product__img {
+    max-width: 265px;
+    width: 100%;
+}
+
+.card-product__body {
+    padding: 18px 10px 15px;
+}
+
+.card-product__title {
+    text-transform: uppercase;
+    color: #575454;
+    font-size: 0.8rem;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.card-product__candidad {
+    font-size: 0.7rem;
+    padding-bottom: 30px;
+}
+.card-product__precio {
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    padding-top: 5px;
+}
+.btn__product {
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    padding: 8px 10px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.btn__product:hover {
+    border: 1px solid red;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
+    padding: 8px 10px;
+}
