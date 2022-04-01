@@ -1,9 +1,9 @@
 import './App.css';
 function App() {
   return (
-    <header>
-      Hello World
-    </header>
+    <div>      
+      <ShoppingCart />
+    </div>
    
   );
 }
