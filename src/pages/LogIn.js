@@ -1,5 +1,5 @@
 import {useNavigate } from 'react-router-dom';
-import { firebaseRegisterUser } from '../firebase';
+import { firebaseLogIn } from '../firebase';
 import React, { useRef } from 'react';
 import {
   NavLink
@@ -11,17 +11,25 @@ export default function LogIn() {
   const navigate = useNavigate();
   const form = useRef(null);
 
-  const handleSubmit = (event) => {
-		event.preventDefault();
+  const userLogIn = async (event) => {
+    event.preventDefault();
 		const formData = new FormData(form.current);
-		const user = {
+		const credentials = {
 		  email: formData.get('email'),
 			password: formData.get('password')
 		}
-		console.log(user);
-    firebaseRegisterUser( user.email, user.password);
-    navigate('/login', { replace: true });
-	}
+		console.log(credentials);
+    const logIn = await firebaseLogIn(credentials);
+
+    if (logIn) {
+      console.log(logIn);
+      console.log('Bienvenida');
+      navigate('/', { replace: true });
+    } else {
+      console.log('error');
+    }
+  }
+
   return (
     <>
     <h1>Login</h1>
@@ -35,7 +43,7 @@ export default function LogIn() {
           <label for="password" className="form-label">Password</label>
           <input type="password" className="form-control" name="password"/>
         </div>
-        <button onClick={handleSubmit} className="primary-button login-button">Iniciar</button>
+        <button onClick={userLogIn} className="primary-button login-button">Iniciar</button>
         <NavLink to="/sigup" className="nav__button-login-text">Registrar</NavLink>
       </form>
     </div>

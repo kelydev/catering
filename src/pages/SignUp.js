@@ -17,10 +17,9 @@ export default function SignUp() {
     firebaseRegisterUser( user.email, user.password);
     navigate('/login', { replace: true });
 	}
-
     return (
       <>
-      <h1>Login</h1>
+      <h1>Formulario de registro</h1>
       <div className="container">
         <form action="/" className="form" ref={form}>
           <div className="mb-3">
