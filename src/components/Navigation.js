@@ -141,7 +141,7 @@ export default function Navigation() {
           </ul>
         </section>
         <button className="nav__button-login">
-          <NavLink to="/login" className="nav__button-login-text">¡pide aqui!</NavLink>
+          <NavLink to="/login" className="nav__button-login-text">Iniciar Sesion</NavLink>
         </button>
       </nav>
     </>

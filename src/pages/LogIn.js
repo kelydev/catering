@@ -4,13 +4,11 @@ import React, { useRef } from 'react';
 import {
   NavLink
 } from 'react-router-dom';
-
+import '../styles/sass/_login.scss';
 
 export default function LogIn() {
-
   const navigate = useNavigate();
   const form = useRef(null);
-
   const userLogIn = async (event) => {
     event.preventDefault();
 		const formData = new FormData(form.current);
@@ -29,24 +27,33 @@ export default function LogIn() {
       console.log('error');
     }
   }
-
   return (
-    <>
-    <h1>Login</h1>
-    <div className="container">
-      <form action="/" className="form" ref={form}>
-        <div className="mb-3">
-          <label for="email" className="form-label">Email address</label>
-          <input type="email" className="form-control" name ="email" aria-describedby="email"/>
-        </div>
-        <div className="mb-3">
-          <label for="password" className="form-label">Password</label>
-          <input type="password" className="form-control" name="password"/>
-        </div>
-        <button onClick={userLogIn} className="primary-button login-button">Iniciar</button>
-        <NavLink to="/sigup" className="nav__button-login-text">Registrar</NavLink>
-      </form>
-    </div>
+  <>
+  <section className='login'>
+    <form action='/' className='login__form' ref={form}>
+      <div className='container__form'>
+        <h2 className='login__title'>inicia sesion</h2>
+        <p className='login__description'>
+        ¿no tienes una cuenta?
+        <b><NavLink to='/sigup' className='login__register'> unete ahora</NavLink></b>
+      </p>
+      <div className='input-groups'>
+        <input type='email' name='email' required className='input'/>
+        <label className='label'>correo electronico</label>
+      </div>
+      <div className='input-groups'>
+          <input type='password' name='password' required className='input'/>
+          <label className='label'>contraseña</label>
+      </div >
+        <button onClick={userLogIn} className='login__button--sesion'>iniciar sesion</button>
+        <p className='login__password'><NavLink to='#' className='login__form--input'>olvide ni contraseña</NavLink></p>
+      </div>
+      <div className='login__button'>
+        <button className='login__button-facebook btns'>facebook</button>
+        <button className='login__button-google btns'>google</button>
+      </div>
+    </form>
+  </section>
   </>
   )
 }
