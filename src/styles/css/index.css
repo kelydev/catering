@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.box {
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1450980392) inset;
+}
+
+.box button {
+  margin-bottom: 10px;
+}
+
+img {
+  width: 180px;
+  object-fit: center;
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.carrito {
+  display: flex;
+  flex-direction: row;
+  border-bottom: "thin solid gray";
+}
+
+.carrito h2 {
+  padding: 10px;
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  width: 150px;
+  padding: 10px;
+}
+
+.botones button {
+  margin: 10px;
+}
+
+/*# sourceMappingURL=index.css.map */

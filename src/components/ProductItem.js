@@ -1,11 +1,12 @@
 const ProductItem = ({ data, addToCart }) => {
-    let { id, name, price, img } = data;
+    let { _id, name, price, urlImage, description } = data;
     return (
       <div style={{ border: "thin solid gray", padding: "1rem" }}>
-        <img src={img} alt="img" />
+        <img src={urlImage} alt="img" />
         <h4>{name}</h4>
-        <h5>${price}.00</h5>
-        <button onClick={() => addToCart(id)}>Agregar al carrito</button>
+        <h4>{description}</h4>
+        <h5>s/.{price}.00</h5>
+        <button onClick={() => addToCart(_id)}>Agregar al carrito</button>
       </div>
     );
   };
