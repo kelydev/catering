@@ -1,0 +1,128 @@
+@import "./variable";
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.login__form {
+    padding: 40px 0;
+    width: 495px;
+}
+
+.container__form {
+    width: 100%;
+    margin: auto;
+}
+
+.login__form .input-groups {
+    position: relative;
+    margin: 45px;
+}
+
+.login__title {
+    text-align: center;
+    font-weight: 700;
+    margin: 17px 0px;
+}
+
+.login__description {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
+
+.login__register {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.input {
+    background: none;
+    color: #c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #5e5d5d;
+    ;
+}
+
+.input:focus {
+    outline: none;
+    color: #5e5d5d;
+}
+
+.label {
+    color: #5e5d5d;
+    font-size: 16px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.5s ease all;
+    pointer-events: none;
+}
+
+.input:focus~.label,
+.input:valid~.label {
+    top: -14px;
+    font-size: 12px;
+    color: #020202;
+}
+
+.login__button--sesion{
+    font-family: 'roboto';
+    background: #ff0000;
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+}
+
+.login__password {
+    text-align: center;
+}
+
+.login__button {
+    display: flex;
+    justify-content: center;
+}
+
+.btns {
+    margin: 10px;
+    padding: 10px 30px;
+    color: #ffffff;
+}
+
+.login__button-facebook {
+    background-color: #3a5999 ;
+}
+
+.login__button-google {
+    background-color: #d94c3e ;
+}
+
+@media screen and (min-width: $breakpoint1) {
+    .login__form {
+        width: 600px;
+    }
+}
+
+@media screen and (min-width: $breakpoint2) {
+ 
+}
+
+@media screen and (min-width: $breakpoint3) {
+   
+}

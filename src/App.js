@@ -5,13 +5,17 @@ import Home from "./pages/Home"
 import Carta from "./pages/Carta"
 import Locales from "./pages/Locales"
 import Blogs from "./pages/Blogs"
+import TerminosCondiciones from "./pages/Terminos-Condiciones"
 import NotFound from "./pages/NotFound"
 import LogIn from "./pages/LogIn"
 import SignUp from "./pages/SignUp"
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import {firebaseConfig} from "./firebase";
 
+firebaseConfig();
 function App() {
+  
   return (
     <>
       <Header />
@@ -22,6 +26,7 @@ function App() {
           <Route path="carta" element={<Carta />}/>
           <Route path="locales" element={<Locales />}/>
           <Route path="blog" element={<Blogs />}/>
+          <Route path="terminos-condiciones" element={<TerminosCondiciones />}/>
           <Route path="login" element={<LogIn />}/>
           <Route path="sigup" element={<SignUp />}/>
           <Route path="*" element={<NotFound />}/>
