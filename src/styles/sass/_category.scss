@@ -19,6 +19,7 @@
     
     &-item.active {
       border-bottom: 3px solid #f00;
+      transition: all 0.1s ease-in-out;
     }
     
     &-link {
@@ -34,6 +35,16 @@
       &-image {
         height: 1.9rem;
         object-fit: cover;
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        opacity: .54;
+        transition: all 0.3s linear;
+        
+        &.active {
+          -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+          opacity: 1;
+        }
       }
       &-text {
         font-family: silka-semibold, Helvetica, Arial, sans-serif;
