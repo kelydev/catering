@@ -1,22 +1,29 @@
-import React, {useState, useEffect} from 'react';
-import Filter from '../components/Filter';
+import React, { useState, useEffect } from "react";
+import Filter from "../components/Filter";
 import CardProduct from "../components/CardProduct";
 import "../styles/sass/_carta.scss";
 
 const Carta = () => {
-  const [producto, setProducto] = useState([]);
+  const [productsList, setProductsList] = useState([]);
+  const [products, setProducts] = useState([]);
+  
+
   useEffect(() => {
     fetch("https://mariaalmenara.herokuapp.com/api/products/tortas")
       .then((response) => response.json())
-      .then((data) => setProducto(data));
+      .then((data) => {
+        setProductsList(data);
+        setProducts(data);
+      });
   }, []);
 
+  
   return (
     <>
-      <Filter/>
+      <Filter productsList={productsList} setProducts={setProducts}/>
       <section className="carta-products">
-        {producto.map((productos) => (
-          <CardProduct product={productos} />
+        {products.map((product) => (
+          <CardProduct product={product} />
         ))}
       </section>
     </>

@@ -1,17 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/sass/_filter.scss"
 import Select from 'react-select'
 
 const options = [
-  {isDisabled:true,value: 'a', label: 'Ordenar por...'},
-  {value: 'b', label: 'Los más pedidos'},
-  {value: 'c', label: 'Ascendente alfabéticamente'},
-  {value: 'd', label: 'Descendente alfabéticamente'},
-  {value: 'f', label: 'De menor a mayor precio'},
-  {value: 'g', label: 'De mayor a menor precio'}
+  {isDisabled:true,value: '0', label: 'Ordenar por...'},
+  {value: '1', label: 'Los más pedidos'},
+  {value: '2', label: 'Ascendente alfabéticamente'},
+  {value: '3', label: 'Descendente alfabéticamente'},
+  {value: '4', label: 'De menor a mayor precio'},
+  {value: '5', label: 'De mayor a menor precio'}
 ]
 
-export default function Filter() {
+export default function Filter({ productsList, setProducts }) {
+  
+  const [search, setSearch] = useState("");
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+    filter(e.target.value);
+  };
+
+  const filter = (searchTerm) => {
+    const result = productsList.filter((product) => {
+      if (
+        product.name
+          .toString()
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        product.description
+          .toString()
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
+      ) {
+        return product;
+      }
+    });
+    setProducts(result);
+  };
 
   const customStyles = {
     menu: (provided, state) => ({
@@ -44,7 +69,13 @@ export default function Filter() {
   return (
     <section className='filter'>
       <div className="filter__filter-name-container">
-        <input className='filter__filter-name-input' type="text" placeholder="Buscar productos"/>
+        <input
+          className='filter__filter-name-input'
+          type="text"
+          placeholder="Buscar productos"
+          value={search}
+          onChange={handleChange}
+        />
         <button className='filter__filter-name-btn'>
           <img className='filter__filter-name-btn-image' src="https://www.mariaalmenara.pe/_nuxt/img/e8d06d6.png" alt="icon search" />
         </button>
