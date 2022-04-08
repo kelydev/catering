@@ -11,17 +11,43 @@ const options = [
   {value: '5', label: 'De mayor a menor precio'}
 ]
 
-export default function Filter({ productsList, setProducts }) {
+export default function Filter({ productsList, setProducts, products }) {
   
   const [search, setSearch] = useState("");
+  const [order, setOrder] = useState("");
 
-  const handleChange = (e) => {
+  const handleChangeSearch = (e) => {
     setSearch(e.target.value);
-    filter(e.target.value);
+    filterSearch(e.target.value);
   };
 
-  const filter = (searchTerm) => {
-    const result = productsList.filter((product) => {
+  const handleChangeOrder = (option) => {
+    setOrder(option.value);
+    filterOrder(option.value)
+  }
+
+  const filterOrder = (value) => {
+    let newProducts = new Array(...products)
+    if (value === "1") {
+      newProducts = newProducts.sort((a, b) => a.rating - b.rating)
+      setProducts(newProducts)
+    } else if (value === "2") {
+      newProducts = newProducts.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+      setProducts(newProducts)
+    } else if (value === "3") {
+      newProducts = newProducts.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0)).reverse()
+      setProducts(newProducts)
+    } else if (value === "4") {
+      newProducts = newProducts.sort((a, b) => a.price - b.price)
+      setProducts(newProducts)
+    } else if (value === "5") {
+      newProducts = newProducts.sort((a, b) => a.price - b.price).reverse()
+      setProducts(newProducts)
+    }
+  }
+
+  const filterSearch = (searchTerm) => {
+    let result = productsList.filter((product) => {
       if (
         product.name
           .toString()
@@ -35,6 +61,19 @@ export default function Filter({ productsList, setProducts }) {
         return product;
       }
     });
+
+    if (order === "1") {
+      result = result.sort((a, b) => a.rating - b.rating)
+    } else if (order === "2") {
+      result = result.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0))
+    } else if (order === "3") {
+      result = result.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0)).reverse()
+    } else if (order === "4") {
+      result = result.sort((a, b) => a.price - b.price)
+    } else if (order === "5") {
+      result = result.sort((a, b) => a.price - b.price).reverse()
+    }
+
     setProducts(result);
   };
 
@@ -74,7 +113,7 @@ export default function Filter({ productsList, setProducts }) {
           type="text"
           placeholder="Buscar productos"
           value={search}
-          onChange={handleChange}
+          onChange={handleChangeSearch}
         />
         <button className='filter__filter-name-btn'>
           <img className='filter__filter-name-btn-image' src="https://www.mariaalmenara.pe/_nuxt/img/e8d06d6.png" alt="icon search" />
@@ -87,6 +126,7 @@ export default function Filter({ productsList, setProducts }) {
           styles={customStyles}
           placeholder={"Ordenar por..."}
           isSearchable={false}
+          onChange={handleChangeOrder}
         />
       </div>
     </section>

@@ -20,10 +20,10 @@ const Carta = () => {
   
   return (
     <>
-      <Filter productsList={productsList} setProducts={setProducts}/>
+      <Filter productsList={productsList} setProducts={setProducts} products={products}/>
       <section className="carta-products">
         {products.map((product) => (
-          <CardProduct product={product} />
+          <CardProduct key={product._id} product={product} />
         ))}
       </section>
     </>
