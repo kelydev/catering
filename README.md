@@ -15,7 +15,7 @@ El objetivo del proyecto presentado y basado en un ecommerce es ganarse la confi
   <a href="#contribuir">Contribuir</a> •
 </p>
 
-## Instalación 💻
+## Instalación
 - Ubicarse en la carpeta que contendrá el proyecto
 - Abrir la terminal de comandos
   - git clone https://github.com/kelydev/catering.git
@@ -76,7 +76,7 @@ Para desarrollar la web del proyecto, hemos utilizado los siguientes lenguajes y
     </tbody>
 </table>
 
-## Contribuidores ✨
+## Contribuidores
 
 Muchas gracias a estas personas maravillosas
 <table>
