@@ -6,7 +6,6 @@ import { Link, useLocation } from "react-router-dom";
 export default function Category() {
   const [categories, setCategories] = useState([]);
   let location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     fetch("https://mariaalmenara.herokuapp.com/api/categories")

@@ -12,6 +12,7 @@ import SignUp from "./pages/SignUp"
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {firebaseConfig} from "./firebase";
+import Product from "./pages/Product";
 
 firebaseConfig();
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <Route path="cartainfo" element={<Carta />}/>
           <Route path="carta" element={<Carta />}/>
           <Route path="carta/:type" element={<Carta />}/>
-          <Route path="carta/:type/:id" element={<Home />}/>
+          <Route path="carta/:type/:id" element={<Product />}/>
           <Route path="locales" element={<Locales />}/>
           <Route path="blog" element={<Blogs />}/>
           <Route path="terminos-condiciones" element={<TerminosCondiciones />}/>
