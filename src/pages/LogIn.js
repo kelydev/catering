@@ -1,53 +1,55 @@
-import {useNavigate } from 'react-router-dom';
-import { firebaseLogIn } from '../firebase';
-import React, { useRef } from 'react';
-import {
-  NavLink
-} from 'react-router-dom';
+import {useNavigate, NavLink } from 'react-router-dom';
+import { useAuth } from "../utils/AuthContext";
+import React, {useState} from 'react';
 import '../styles/sass/_login.scss';
 
 export default function LogIn() {
-  const navigate = useNavigate();
-  const form = useRef(null);
-  const userLogIn = async (event) => {
-    event.preventDefault();
-		const formData = new FormData(form.current);
-		const credentials = {
-		  email: formData.get('email'),
-			password: formData.get('password')
-		}
-		console.log(credentials);
-    const logIn = await firebaseLogIn(credentials);
 
-    if (logIn) {
-      console.log(logIn);
-      console.log('Bienvenida');
-      navigate('/', { replace: true });
-    } else {
-      console.log('error');
+  const {firebaseLogIn} = useAuth();
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const usuarios =await firebaseLogIn(user.email, user.password);
+      console.log(usuarios);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
     }
-  }
+  };
+
+  const handleInput = ({ target: { value, name } }) =>
+    setUser({ ...user, [name]: value });
+
   return (
   <>
   <section className='login'>
-    <form action='/' className='login__form' ref={form}>
+    <form action='/' className='login__form' onSubmit={handleSubmit}>
       <div className='container__form'>
         <h2 className='login__title'>inicia sesion</h2>
         <p className='login__description'>
-        ¿no tienes una cuenta?
-        <b><NavLink to='/sigup' className='login__register'> unete ahora</NavLink></b>
-      </p>
-      <div className='input-groups'>
-        <input type='email' name='email' required className='input'/>
-        <label className='label'>correo electronico</label>
-      </div>
-      <div className='input-groups'>
-          <input type='password' name='password' required className='input'/>
+          ¿no tienes una cuenta?
+          <b><NavLink to='/sigup' className='login__register'> unete ahora</NavLink></b>
+        </p>
+        <div className='input-groups'>
+          <input type='email' id='email' name='email' required className='input' onChange={handleInput}/>
+          <label className='label'>correo electronico</label>
+        </div>
+        <div className='input-groups'>
+          <input type='password' id='password' name='password' required className='input' onChange={handleInput}/>
           <label className='label'>contraseña</label>
-      </div >
-        <button onClick={userLogIn} className='login__button--sesion'>iniciar sesion</button>
+        </div >
+        <button className='login__button--sesion' type="submit">iniciar sesion</button>
         <p className='login__password'><NavLink to='#' className='login__form--input'>olvide ni contraseña</NavLink></p>
       </div>
+      {error && <p>{error}</p>}
       <div className='login__button'>
         <button className='login__button-facebook btns'>facebook</button>
         <button className='login__button-google btns'>google</button>
