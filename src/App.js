@@ -25,6 +25,7 @@ function App() {
           <Route path="cartainfo" element={<Carta />}/>
           <Route path="carta" element={<Carta />}/>
           <Route path="carta/:type" element={<Carta />}/>
+          <Route path="carta/:type/:id" element={<Home />}/>
           <Route path="locales" element={<Locales />}/>
           <Route path="blog" element={<Blogs />}/>
           <Route path="terminos-condiciones" element={<TerminosCondiciones />}/>
