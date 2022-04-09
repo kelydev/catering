@@ -5,9 +5,9 @@
   height: 67px;
   padding: 0 10px;
   align-items: center;
-  /*width: 100vw;*/
   gap: 0.8rem;
   background-color: white;
+  box-shadow: 0 1px 6px rgba(0 0 0 / 8%);
 
   @media (min-width: 390px) {
     padding: 0 20px;
@@ -45,6 +45,8 @@
   &__logo-container {
     height: 30px;
     width: 189px;
+    display: flex;
+    align-items: center;
 
     @media (min-width: 390px) {
       width: 200px;
@@ -53,6 +55,10 @@
     @media (min-width: 610px) {
       width: auto;
     }
+  }
+
+  &__logo-link {
+    display: flex;
   }
 
   &__logo {

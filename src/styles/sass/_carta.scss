@@ -1,88 +1,20 @@
-@import "./variable";
-.productos {
-    padding: 2rem 1.25rem;
+.carta-products {
+    display: grid;
+    grid-template-columns: repeat(1 , 1fr);
+    // grid-template-rows: repeat(2 , 100px); {
+    grid-auto-rows: auto;
+    padding: 0 1.875rem;
+    row-gap: 2.1875rem;
+    margin: 1.75rem 0 4.625rem 0;
 }
-
-.container__card {
-    margin: 0 auto;
-}
-.card-product {
-    background-color: #ffffff;
-    box-shadow: 0.6em 0.6em 1.2em rgb(0 0 0 / 5%);
-    transition: 0.3s;
-    padding: 15px 20px 15px;
-    margin-bottom: 20px;
-    width: 100%;
-    border-radius: 0px;
-    align-content: center;
-}
-
-.card-product__img {
-    width: 100%;
-}
-
-.card-product__body {
-    padding: 18px 10px 15px;
-}
-
-.card-product__title {
-    text-transform: uppercase;
-    color: #575454;
-    font-size: 0.8rem;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-}
-.card-product__candidad {
-    font-size: 0.7rem;
-    padding-bottom: 30px;
-}
-.card-product__precio {
-    color: rgb(0, 0, 0);
-    font-weight: 700;
-    padding-top: 5px;
-}
-.btn__product {
-    border: 1px solid red;
-    background-color: red;
-    color: white;
-    padding: 8px 10px;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.btn__product:hover {
-    border: 1px solid red;
-    background-color: rgb(255, 255, 255);
-    color: rgb(255, 0, 0);
-    padding: 8px 10px;
-}
-
-@media screen and (min-width: $breakpoint1) {
-    .productos {
-        padding: 2rem;
-    }
-    .container__card {
-        display: grid;
-        grid-template-columns: auto auto;
-        justify-content: center;
-        gap: 0.75rem;
+@media (min-width: 601px) {
+    .carta-products {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 33px;
     }
 }
-
-@media screen and (min-width: $breakpoint2) {
-    .container__card {
-       grid-template-columns: auto auto auto;
-       gap: 0.75rem;
-    }
-
-}
-
-@media screen and (min-width: $breakpoint3) {
-    .productos {
-        padding: 2rem 3rem;
-    }
-    .container__card {
-       grid-template-columns: auto auto auto auto;
-       gap: 0.75rem 0.95rem;
+@media (min-width: 1061px) {
+    .carta-products {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

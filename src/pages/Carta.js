@@ -1,30 +1,34 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
+import Filter from "../components/Filter";
+import CardProduct from "../components/CardProduct";
 import "../styles/sass/_carta.scss";
-const Carta = () => {
-    const [producto, setProducto] = useState([]);
-    useEffect (()=>{
-        fetch('https://mariaalmenara.herokuapp.com/api/products')
-        .then(response=> response.json())
-        .then(data => setProducto(data));
-    },[]);
+import { useParams } from "react-router-dom";
 
-    return (
-      <section className="productos">
-          <div className="container__card">
-            {producto.map(productos => (
-              <div className="card-product">
-                <img src={productos.urlImage} alt="helado" class="card-product__img"/>
-                <div class="card-product__body">
-                  <h4 class="card-product__title"><b>{productos.name}</b></h4> 
-                  <span class="card-product__candidad">1{productos.rating} porciones aproximadamente</span>
-                  <p class="card-product__precio">S/{productos.price}.00</p>
-                  <button class="btn__product">comprar ahora</button>
-                </div>     
-              </div>   
-            ))}
-          </div>
-       
+const Carta = () => {
+  const [productsList, setProductsList] = useState([]);
+  const [products, setProducts] = useState([]);
+  
+  let params = useParams()
+
+  useEffect(() => {
+    fetch(`https://mariaalmenara.herokuapp.com/api/products/${ params.type ? params.type : "tortas"}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProductsList(data);
+        setProducts(data);
+      });
+  }, [params]);
+
+  
+  return (
+    <>
+      <Filter productsList={productsList} setProducts={setProducts} products={products}/>
+      <section className="carta-products">
+        {products.map((product) => (
+          <CardProduct key={product._id} product={product} />
+        ))}
       </section>
-    );
-}
+    </>
+  );
+};
 export default Carta;
