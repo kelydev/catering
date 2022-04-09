@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../styles/sass/_category.scss";
 import HorizontalScroll from "react-scroll-horizontal";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Category() {
   const [categories, setCategories] = useState([]);
+  let location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     fetch("https://mariaalmenara.herokuapp.com/api/categories")
@@ -48,33 +50,43 @@ export default function Category() {
   }, [categories]);
 
   return (
-    <div className="category">
-      <ul className="category__list">
-        <HorizontalScroll>
-          {categories.map((category) => {
-            return (
-              <li
-                className="category__list-item"
-                key={category._id}
-              >
-                <Link
-                  className="category__list-link"
-                  to={`carta/${category.route}`}
-                >
-                  <img
-                    className="category__list-link-image"
-                    src={category.urlImage}
-                    alt="category"
-                  />
-                  <span className="category__list-link-text">
-                    {category.name}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </HorizontalScroll>
-      </ul>
-    </div>
+    <>
+      {
+        location.pathname.toString().toLowerCase().includes("/carta") ||
+        location.pathname.toString().toLowerCase().includes("/carta/") ||
+        location.pathname.toString().toLowerCase().includes("/cartainfo") ||
+        location.pathname.toString().toLowerCase().includes("/cartainfo/")
+        ?
+        (
+          <div className="category">
+            <ul className="category__list">
+              <HorizontalScroll>
+                {categories.map((category) => {
+                  return (
+                    <li className="category__list-item" key={category._id}>
+                      <Link
+                        className="category__list-link"
+                        to={`carta/${category.route}`}
+                      >
+                        <img
+                          className="category__list-link-image"
+                          src={category.urlImage}
+                          alt="category"
+                        />
+                        <span className="category__list-link-text">
+                          {category.name}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </HorizontalScroll>
+            </ul>
+          </div>
+        )
+        :
+        ""
+      }
+    </>
   );
 }
