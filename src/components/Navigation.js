@@ -1,3 +1,4 @@
+
 import {useNavigate, NavLink} from 'react-router-dom';
 import "../styles/sass/_navigation.scss";
 import { useState} from "react";
@@ -48,7 +49,7 @@ export default function Navigation() {
           }
         </button>
         <div className="nav__logo-container">
-          <NavLink to="/" className="#">
+          <NavLink to="/" className="nav__logo-link">
             <img
               className="nav__logo"
               src="https://www.mariaalmenara.pe/_nuxt/img/163c1e9.svg"
