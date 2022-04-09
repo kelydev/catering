@@ -4,8 +4,8 @@ import "../styles/sass/_navigation.scss";
 import { useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, brands } from "@fortawesome/fontawesome-svg-core/import.macro";
+import Cart from './Cart';
 import { useAuth } from "../utils/AuthContext";
-
 
 export default function Navigation() {
 
@@ -17,8 +17,9 @@ export default function Navigation() {
     const body = document.getElementById("body");
     const buttonMenu = document.getElementById("buttonMenu");
     const navMenu = document.getElementById("navMenu");
-
+    
     buttonMenu.classList.toggle("active");
+    
 
     body.classList.toggle("menu-open");
     navMenu.classList.toggle("open");
@@ -38,7 +39,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="nav">
+      <nav id='nav' className="nav">
         <button className="nav__button-menu" onClick={(e) => openMenu(e)} id="buttonMenu">
           {
             menuSatus
@@ -154,6 +155,12 @@ export default function Navigation() {
             </li>
           </ul>
         </section>
+<<<<<<< HEAD
+        <Cart/>
+        <button className="nav__button-login">
+          <NavLink to="/login" className="nav__button-login-text">LogIn</NavLink>
+        </button>
+=======
         { user ? ( 
         <>
         <div className='nav__logout'>
@@ -173,6 +180,7 @@ export default function Navigation() {
           </>
         )
         }
+>>>>>>> develop
       </nav>
     </>
   );
