@@ -1,0 +1,397 @@
+.footer {
+  background: #202020;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #686868;
+  padding: 41px 30px 0px 30px;
+  &-nav {
+    display: grid;
+    grid-template-areas: 
+    "footer-section1"
+    "footer-section2"
+    "footer-section3"
+    "footer-section6";
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+    &__home-container {
+      grid-area: footer-section1;
+      font-family: silka-medium,Helvetica,Arial,sans-serif;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 38.710px;
+    }
+    &__home-link {
+        &-icon {
+          background-image: url("https://www.mariaalmenara.pe/_nuxt/img/26f3f73.svg");
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: 50%;
+          width: 81px;
+          height: 133px;
+          transform: translateX(-0.05rem);
+          cursor: pointer
+          ;
+        }
+    }
+    &__home-info {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    &__link-list-container {
+      grid-area: footer-section2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 38px;
+      padding: 0 22px;
+    }
+    &__link-list-title {
+      font-family: silka-semibold,Helvetica,Arial,sans-serif;
+      font-size: 13px;
+      color: white;
+      position: relative;
+      padding-bottom: 0.4rem;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 41px;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+        border-bottom: 1px solid rgba(88,88,88,.47059);
+      }
+    }
+    &__link-list {
+      font-family: silka-medium,Helvetica,Arial,sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 19px;
+    }
+    &__link {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+        &-item {
+          font-size: 13px;
+        }
+        &-item:nth-last-child(2) {
+          display: none;
+        }
+    }
+
+    &__store-container {
+      display: none;
+    }
+
+    &__claims-container {
+      display: none;
+    }
+
+    &__contact-container {
+      grid-area:footer-section3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+    }
+    &__contact-title {
+      font-family: silka-semibold,Helvetica,Arial,sans-serif;
+      font-size: 13px;
+      position: relative;
+      color: white;
+      padding-bottom: 0.35rem;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 41px;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+        border-bottom: 1px solid rgba(88,88,88,.47059);
+      }
+ 
+    }
+    &__contact-link-list {
+      display: flex;
+      gap: 1.6rem;
+      margin-bottom: 34px;
+    }
+    &__contact-link {
+      display: flex;
+      height: 44px;
+      width: 42px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      cursor: pointer;
+      &-item {
+        &:first-child {
+          .footer-nav__contact-link {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOC44ODEiIGhlaWdodD0iMzguODc2IiB2aWV3Qm94PSIwIDAgMzguODgxIDM4Ljg3NiI+PHBhdGggZD0iTTcwLjM1OC04MS41NjNhMTkuNDQxLDE5LjQ0MSwwLDAsMC0xOS40NCwxOS40MzgsMTkuNDQsMTkuNDQsMCwwLDAsMTkuNDQsMTkuNDM4QTE5LjQzOSwxOS40MzksMCwwLDAsODkuOC02Mi4xMjUsMTkuNDQsMTkuNDQsMCwwLDAsNzAuMzU4LTgxLjU2M1ptNi4xNDgsMTEuMTM0cy0xLjg2My0uMDEtMi42MTgtLjAxYy0xLjQ4MywwLTEuMzgyLjU3OC0xLjM4MiwyLjR2MS4zNTVoNGwtLjcxOSw0LjcyNEg3Mi41MDZ2MTIuN0g2Ni45NXYtMTIuN0g2NC4yMTN2LTQuNzI0SDY2Ljk1di0zLjhBNC40OTQsNC40OTQsMCwwLDEsNjguNjI5LTczLjlhNS42MzQsNS42MzQsMCwwLDEsMy4zODUtMS4wODZsNC40OTIuMDA3WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUwLjkxOCA4MS41NjMpIiBmaWxsPSIjNjg2ODY4Ii8+PC9zdmc+");
+
+          }
+        }
+        &:last-child {
+          .footer-nav__contact-link {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOS4xNTgiIGhlaWdodD0iMzkuMTU5IiB2aWV3Qm94PSIwIDAgMzkuMTU4IDM5LjE1OSI+PHBhdGggZD0iTTI5Ny45NDMsNDcuMDQ4YTQuMjQ3LDQuMjQ3LDAsMSwwLTQuMzgyLTQuMjQ1QTQuMzE2LDQuMzE2LDAsMCwwLDI5Ny45NDMsNDcuMDQ4WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI3OC4zMjEgLTIzLjIyOSkiIGZpbGw9IiM2ODY4NjgiLz48cGF0aCBkPSJNMzAyLjI2Niw0NC41OTVhNi43ODQsNi43ODQsMCwwLDEtMTMuNTYxLDAsNi4zOTMsNi4zOTMsMCwwLDEsLjI3OS0xLjg3MWgtMnY5LjIxNWEuODcuODcsMCwwLDAsLjg2Ny44NjdoMTUuMTkxYS44NzEuODcxLDAsMCwwLC44NjgtLjg2N1Y0Mi43MjRoLTEuOTIxQTYuMzUxLDYuMzUxLDAsMCwxLDMwMi4yNjYsNDQuNTk1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI3NS44NjUgLTI0Ljc4NSkiIGZpbGw9IiM2ODY4NjgiLz48cGF0aCBkPSJNMS41NjcsMEgyLjg2MkExLjU2NywxLjU2NywwLDAsMSw0LjQyOSwxLjU2N1YyLjc0NkExLjU2OSwxLjU2OSwwLDAsMSwyLjg2LDQuMzE1SDEuNTY2QTEuNTY2LDEuNTY2LDAsMCwxLDAsMi43NDlWMS41NjdBMS41NjcsMS41NjcsMCwwLDEsMS41NjcsMFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzLjYwMiAxMS4xMzYpIiBmaWxsPSIjNjg2ODY4Ii8+PHBhdGggZD0iTTI4OC44MjEsMTQuMUExOS41NzksMTkuNTc5LDAsMSwwLDMwOC40LDMzLjY3NiwxOS41NzksMTkuNTc5LDAsMCwwLDI4OC44MjEsMTQuMVptMTAuOTA4LDI3LjY4NmEyLjgwNywyLjgwNywwLDAsMS0yLjgsMi44SDI4MC43MTRhMi44MDcsMi44MDcsMCwwLDEtMi44LTIuOFYyNS41NjlhMi44MDcsMi44MDcsMCwwLDEsMi44LTIuOGgxNi4yMTRhMi44MDcsMi44MDcsMCwwLDEsMi44LDIuOFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNjkuMjQyIC0xNC4wOTcpIiBmaWxsPSIjNjg2ODY4Ii8+PC9zdmc+");
+            
+          }
+
+        }
+        &:nth-child(2) {
+          .footer-nav__contact-link {
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzOC4yNDIiIGhlaWdodD0iMzguMjM5IiB2aWV3Qm94PSIwIDAgMzguMjQyIDM4LjIzOSI+PHBhdGggZD0iTTE3OS4xMjksMTUuMjEyYTE5LjEyLDE5LjEyLDAsMSwwLDE5LjEyLDE5LjEyMkExOS4xMjEsMTkuMTIxLDAsMCwwLDE3OS4xMjksMTUuMjEyWm05LjA5MiwxNC40NTdjLjAwNi4yLjAxMS40LjAxMS42MDVBMTMuMzM5LDEzLjMzOSwwLDAsMSwxNjcuNyw0MS41MTRhOS41Miw5LjUyLDAsMCwwLDEuMTE3LjA2Niw5LjQsOS40LDAsMCwwLDUuODI2LTIuMDEsNC43LDQuNywwLDAsMS00LjM4My0zLjI1NCw0LjgsNC44LDAsMCwwLC44ODUuMDg1LDQuNyw0LjcsMCwwLDAsMS4yMzMtLjE2NCw0LjcsNC43LDAsMCwxLTMuNzYxLTQuNnYtLjA1N2E0LjY3NCw0LjY3NCwwLDAsMCwyLjEyNS41ODgsNC43LDQuNywwLDAsMS0xLjQ1Mi02LjI2MywxMy4zMTIsMTMuMzEyLDAsMCwwLDkuNjY3LDQuOSw0Ljc0Miw0Ljc0MiwwLDAsMS0uMTIxLTEuMDcxLDQuNjkxLDQuNjkxLDAsMCwxLDguMTEzLTMuMiw5LjQxMyw5LjQxMywwLDAsMCwyLjk3OS0xLjE0Miw0LjcxNCw0LjcxNCwwLDAsMS0yLjA2MSwyLjYsOS40OCw5LjQ4LDAsMCwwLDIuNjk0LS43MzlBOS42MTIsOS42MTIsMCwwLDEsMTg4LjIyMSwyOS42NjlaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTYwLjAwNyAtMTUuMjEyKSIgZmlsbD0iIzY4Njg2OCIvPjwvc3ZnPg==");
+            
+          }
+
+        }
+      }
+    }
+
+    &__page-info-contianer {
+      grid-area:footer-section6;
+      font-family: silka-semibold,Helvetica,Arial,sans-serif;
+      border-top: 1px solid #444;
+      padding: 14px 14px 15px 14px;
+    }
+    &__page-info {
+      text-align: center;
+      font-size: 13px;
+      color: #545454;
+      &--modified-text {
+        display: none;
+        text-align: center;
+        font-size: 13px;
+        color: #545454;
+      }
+    }
+  }
+}
+@media (min-width: 501px) {
+  .footer {
+    background: #202020;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #686868;
+    padding: 41px 30px 0px 30px;
+    &-nav {
+      display: grid;
+      grid-template-areas: 
+      "footer-section1 footer-section2"
+      "footer-section3 footer-section3"
+      "footer-section6 footer-section6";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto auto;
+      &__link-list-container {
+        align-items: flex-start;
+      }
+      &__link-list {
+        align-items: flex-start; 
+      }
+      &__link {
+        justify-content: flex-start;
+      }
+
+    }
+  }
+}
+@media (min-width: 561px) {
+  .footer {
+    &-nav {
+      &__contact-link-list {
+        gap: 0.9rem;
+      }
+    }
+  }
+}
+@media (min-width: 993px) {
+  .footer {
+    &-nav {
+      grid-template-areas: 
+      "footer-section1 footer-section1 footer-section1"
+      "footer-section2 footer-section2 footer-section2"
+      "footer-section3 footer-section4 footer-section5"
+      "footer-section6 footer-section6 footer-section6";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto auto;
+      &__home-container {
+        margin-bottom: 61px;
+      }
+      &__home-link {
+        margin-bottom: 0;
+          &-icon {
+            background-image: url("https://www.mariaalmenara.pe/_nuxt/img/b190372.svg");
+            height: 32px;
+            width: 274px;
+            opacity: 0.9;
+            transform: translateX(-0.05rem);
+          }
+      }
+      &__home-info {
+          display: none;
+      }
+
+      &__link-list-container {
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        margin-bottom: 59.710px;
+        box-sizing: border-box;
+      }
+      &__link-list-title {
+        display: none;
+        &::after {
+          display: none;
+        }
+  
+      }
+      &__link-list {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(6,1fr);
+        gap: 0;
+        width: 100%;
+      }
+      &__link {
+        font-size: 14px;
+        font-family: silka-semibold,Helvetica,Arial,sans-serif;
+        white-space: nowrap;
+        &-item {
+          display: flex;
+          justify-content: center;
+        }
+        &-item:nth-last-child(2) {
+          display: flex;
+        }
+        &-item:first-child {
+          display: none;
+        }
+        &-item:nth-child(6) {
+          display: none;
+        }
+        &-item:nth-child(7) {
+          display: none;
+        }
+          
+      }
+
+      &__contact-container {
+        gap: 21.710px;
+        margin-bottom: 66px;
+      }
+      &__contact-title {
+        color: #686868;
+        padding: 0;
+        &::after {
+          display: none;
+        }
+   
+      }
+      &__contact-link-list {
+        gap: 1rem;
+        margin-bottom: 0;
+      }
+      &__contact-link {
+        height: 33px;
+        width: 31px;
+      }
+
+      &__store-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 21.71px;
+      }
+      &__store-title {
+        font-family: silka-semibold,Helvetica,Arial,sans-serif;
+        font-size: 13px;
+        color: #686868;
+      }
+      &__store-link-container {
+        display: flex;
+        gap: 1.0625rem;
+      }
+      &__store-link {
+        &:first-child {
+          background-image: url("https://www.mariaalmenara.pe/_nuxt/img/2e27b54.svg");
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: 50%;
+          width: 38px;
+          height: 35px;
+        }
+        &:last-child {
+          background-image: url("https://www.mariaalmenara.pe/_nuxt/img/07a18a0.svg");
+          background-size: 100%;          
+          background-repeat: no-repeat;
+          background-position: 50%;
+          width: 61px;
+          height: 24px;
+        }
+      }
+  
+      &__claims-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 21.71px;
+      }
+      &__claims-title {
+        font-family: silka-semibold,Helvetica,Arial,sans-serif;
+        font-size: 13px;
+        color: #686868;
+      }
+      &__claims-link {
+          background-image: url("https://www.mariaalmenara.pe/_nuxt/img/5efaf01.svg");
+          background-size: 100%;          
+          background-position: 50%;
+          background-repeat: no-repeat;
+          width: 35px;
+          height: 41px;
+      }
+    }
+  }
+}
+@media (min-width: 1171px) {
+  .footer-nav {
+    &__contact-link-list {
+      gap: 1.3rem;
+    }
+    &__contact-link {
+      height: 37px;
+      width: 34px;
+    }
+    &__store-link {
+      &:first-child {
+        width: 43px;
+        height: 35px;
+      }
+      &:last-child {
+        width: 64px;
+        height: 24px;
+      }
+    }
+    &__claims-link {
+      width: 39px;
+      height: 41px;
+  }
+    &__page-info {
+      display: none;
+      &--modified-text {
+        display: block;
+        text-align: center;
+        font-size: 13px;
+        color: #545454;
+      }
+    }
+  }
+}
