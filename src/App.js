@@ -13,12 +13,13 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {firebaseConfig} from "./firebase";
 import Product from "./pages/Product";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
 firebaseConfig();
 function App() {
-  
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Routes>
         <Route path="/" element={<Main />}>
@@ -36,7 +37,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
-    </>
+    </Provider>
   );
 }
 
