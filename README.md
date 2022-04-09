@@ -38,7 +38,6 @@ Para desarrollar la web del proyecto, hemos utilizado los siguientes lenguajes y
         <th>JavaScript</th>
         <th>SASS</th>
         <th>Axios</th>
-        <th>Bootstrap</th>
         <th>Json</th>
       </tr>
     </thead>
@@ -63,10 +62,6 @@ Para desarrollar la web del proyecto, hemos utilizado los siguientes lenguajes y
         <td>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Axios_logo_%282017%29.svg/1200px-Axios_logo_%282017%29.svg.png" width="100%" />
-        </td>
-        <td>
-          <img
-            src="https://ironsolutionsit.com.ar/img/works/bootstrap.jpg" width="100%" />
         </td>
         <td>
           <img
