@@ -155,12 +155,7 @@ export default function Navigation() {
             </li>
           </ul>
         </section>
-<<<<<<< HEAD
         <Cart/>
-        <button className="nav__button-login">
-          <NavLink to="/login" className="nav__button-login-text">LogIn</NavLink>
-        </button>
-=======
         { user ? ( 
         <>
         <div className='nav__logout'>
@@ -175,12 +170,11 @@ export default function Navigation() {
         (
           <>
             <button className="nav__button-login">
-            <NavLink to="/login" className="nav__button-login-text">Iniciar Sesion</NavLink>
+            <NavLink to="/login" className="nav__button-login-text">LogIn</NavLink>
             </button>
           </>
         )
         }
->>>>>>> develop
       </nav>
     </>
   );
