@@ -8,6 +8,7 @@
   gap: 0.8rem;
   background-color: white;
   box-shadow: 0 1px 6px rgba(0 0 0 / 8%);
+<<<<<<< HEAD
   position: relative;
   overflow-x: visible;
   overflow-y: visible;
@@ -16,6 +17,9 @@
   overflow-x: clip;
   }
 
+=======
+  
+>>>>>>> develop
   @media (min-width: 390px) {
     padding: 0 20px;
   }
@@ -26,6 +30,15 @@
 
   @media (min-width: 980px) {
     grid-template-columns: max-content max-content auto max-content;
+  }
+  &__parrafo {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 20px 0px;
+  }
+  &__logout {
+    display: flex;
+    justify-content:right;
   }
 
   &__button-menu {

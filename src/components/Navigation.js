@@ -1,11 +1,16 @@
-import { NavLink } from 'react-router-dom';
+
+import {useNavigate, NavLink} from 'react-router-dom';
 import "../styles/sass/_navigation.scss";
-import { useState } from "react";
+import { useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, brands } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Cart from './Cart';
+import { useAuth } from "../utils/AuthContext";
 
 export default function Navigation() {
+
+  const { firebaseLogout, user, loading} = useAuth();
+  const navigate = useNavigate();
   const [menuSatus, setMenuSatus] = useState(false);
 
   const openMenu = (e) => {
@@ -21,6 +26,16 @@ export default function Navigation() {
 
     menuSatus ? setMenuSatus(false) : setMenuSatus(true);
   };
+  
+  const handleLogout = async () => {
+    try {
+      await firebaseLogout();
+      navigate("/");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+  if (loading) return <h1>Loading</h1>;
 
   return (
     <>
@@ -140,10 +155,32 @@ export default function Navigation() {
             </li>
           </ul>
         </section>
+<<<<<<< HEAD
         <Cart/>
         <button className="nav__button-login">
           <NavLink to="/login" className="nav__button-login-text">LogIn</NavLink>
         </button>
+=======
+        { user ? ( 
+        <>
+        <div className='nav__logout'>
+          <p className='nav__parrafo'>Bienvenida:{user.displayName}</p>
+          <button className="nav__button-login" onClick={handleLogout}>
+            Cerrar Sesion
+          </button>
+        </div>
+        </>
+        )
+        :
+        (
+          <>
+            <button className="nav__button-login">
+            <NavLink to="/login" className="nav__button-login-text">Iniciar Sesion</NavLink>
+            </button>
+          </>
+        )
+        }
+>>>>>>> develop
       </nav>
     </>
   );
