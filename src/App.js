@@ -11,18 +11,21 @@ import LogIn from "./pages/LogIn"
 import SignUp from "./pages/SignUp"
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import {firebaseConfig} from "./firebase";
+import { AuthProvider } from './utils/AuthContext';
 
-firebaseConfig();
+//firebaseConfig();
+
 function App() {
   
   return (
     <>
+    <AuthProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Main />}>
-          <Route index element={<Home />} />
+          <Route index  element={<Home />} />
           <Route path="cartainfo" element={<Carta />}/>
+
           <Route path="carta" element={<Carta />}/>
           <Route path="carta/:type" element={<Carta />}/>
           <Route path="carta/:type/:id" element={<Home />}/>
@@ -35,6 +38,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      </AuthProvider>
     </>
   );
 }

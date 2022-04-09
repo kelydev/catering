@@ -20,6 +20,15 @@
   @media (min-width: 980px) {
     grid-template-columns: max-content;
   }
+  &__parrafo {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 10px 20px 0px;
+  }
+  &__logout {
+    display: flex;
+    justify-content:right;
+  }
 
   &__button-menu {
     display: flex;
