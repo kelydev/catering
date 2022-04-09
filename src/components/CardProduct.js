@@ -20,7 +20,7 @@ export default function CardProduct({ product }) {
           {product.description}
         </p>
         <h4 className="carta-products__product-info-name">{product.name}</h4>
-        <span className="carta-products__product-info-price">s/ {product.price}.00</span>
+        <span className="carta-products__product-info-price">s/ {Number(product.price).toFixed(2)}</span>
       </div>
       <div className="carta-products__product-button-container">
         <button onClick={handleClick} type="button" className="carta-products__product-button">

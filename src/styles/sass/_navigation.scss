@@ -1,14 +1,22 @@
 .nav {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: min-content;
+  grid-template-columns: min-content max-content auto max-content;
   height: 67px;
   padding: 0 10px;
   align-items: center;
   gap: 0.8rem;
   background-color: white;
   box-shadow: 0 1px 6px rgba(0 0 0 / 8%);
+  position: relative;
+  overflow-x: visible;
+  overflow-y: visible;
+  
+  &.active {
+  overflow-x: clip;
+  }
 
+  
   @media (min-width: 390px) {
     padding: 0 20px;
   }
@@ -18,7 +26,7 @@
   }
 
   @media (min-width: 980px) {
-    grid-template-columns: max-content;
+    grid-template-columns: max-content max-content auto max-content;
   }
   &__parrafo {
     font-size: 1rem;
