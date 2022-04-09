@@ -31,7 +31,7 @@ export default function Category() {
   useEffect(() => {
     const items = document.querySelectorAll(".category__list-item");
     const imgItems = document.querySelectorAll(".category__list-link-image");
-
+    console.log("hola");
     items.forEach((item, index) => {
       item.addEventListener("click", () => {
         items.forEach((item, indexItem) => {
@@ -50,43 +50,39 @@ export default function Category() {
   }, [categories]);
 
   return (
-    <>
-      {
+    <div
+      className={
         location.pathname.toString().toLowerCase().includes("/carta") ||
         location.pathname.toString().toLowerCase().includes("/carta/") ||
         location.pathname.toString().toLowerCase().includes("/cartainfo") ||
         location.pathname.toString().toLowerCase().includes("/cartainfo/")
-        ?
-        (
-          <div className="category">
-            <ul className="category__list">
-              <HorizontalScroll>
-                {categories.map((category) => {
-                  return (
-                    <li className="category__list-item" key={category._id}>
-                      <Link
-                        className="category__list-link"
-                        to={`carta/${category.route}`}
-                      >
-                        <img
-                          className="category__list-link-image"
-                          src={category.urlImage}
-                          alt="category"
-                        />
-                        <span className="category__list-link-text">
-                          {category.name}
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </HorizontalScroll>
-            </ul>
-          </div>
-        )
-        :
-        ""
+          ? "category"
+          : "category hidden"
       }
-    </>
+    >
+      <ul className="category__list">
+        <HorizontalScroll>
+          {categories.map((category) => {
+            return (
+              <li className="category__list-item" key={category._id}>
+                <Link
+                  className="category__list-link"
+                  to={`carta/${category.route}`}
+                >
+                  <img
+                    className="category__list-link-image"
+                    src={category.urlImage}
+                    alt="category"
+                  />
+                  <span className="category__list-link-text">
+                    {category.name}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </HorizontalScroll>
+      </ul>
+    </div>
   );
 }
