@@ -11,14 +11,15 @@ import LogIn from "./pages/LogIn"
 import SignUp from "./pages/SignUp"
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Product from "./pages/Product";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 import { AuthProvider } from './utils/AuthContext';
 
-//firebaseConfig();
-
 function App() {
-  
   return (
     <>
+    <Provider store={store}>
     <AuthProvider>
       <Header />
       <Routes>
@@ -28,7 +29,7 @@ function App() {
 
           <Route path="carta" element={<Carta />}/>
           <Route path="carta/:type" element={<Carta />}/>
-          <Route path="carta/:type/:id" element={<Home />}/>
+          <Route path="carta/:type/:id" element={<Product />}/>
           <Route path="locales" element={<Locales />}/>
           <Route path="blog" element={<Blogs />}/>
           <Route path="terminos-condiciones" element={<TerminosCondiciones />}/>
@@ -39,6 +40,7 @@ function App() {
       </Routes>
       <Footer />
       </AuthProvider>
+    </Provider>
     </>
   );
 }
