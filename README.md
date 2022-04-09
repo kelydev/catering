@@ -11,6 +11,7 @@ El objetivo del proyecto presentado y basado en un ecommerce es ganarse la confi
 <p align="center">
   <a href="#instalación">Instalación</a> •
   <a href="#lenguajes-y-herramientas">Lenguajes y herramientas</a> •
+  <a href="#contribuidores">Contribuidores</a> •
   <a href="#contribuir">Contribuir</a> •
 </p>
 
@@ -73,6 +74,20 @@ Para desarrollar la web del proyecto, hemos utilizado los siguientes lenguajes y
         </td>  
       </tr>
     </tbody>
+</table>
+
+## Contribuidores ✨
+
+Muchas gracias a estas personas maravillosas
+<table>
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/83092069?v=4" width="100px;" alt="Josue Enriquez"/><br /><sub><b>@JosueEnriquez</b></sub></a><br /><a href="https://github.com/JosueEnriquez" title="Code">💻</a></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/44279428?v=4" width="100px;" alt="Kely"/><br /><sub><b>@kelydev</b></sub></a><br /><a href="https://github.com/kelydev" title="Code">💻</a></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/9819957?v=4" width="100px;" alt="Claudia Rejas"/><br /><sub><b>@JClaudia-Fernanda-Rejas-Ruiz</b></sub></a><br /><a href="https://github.com/Claudia-Fernanda-Rejas-Ruiz" title="Code">💻</a></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/53058216?v=4"/><br /><sub><b>@Isabel957</b></sub></a><br /><a href="https://github.com/Isabel957" title="Code">💻</a></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/98496100?v=4" width="100px;" alt="Leonardopabe"/><br /><sub><b>@Leonardopabe</b></sub></a><br /><a href=https://github.com/Leonardopabe" title="Code">💻</a></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/98499077?v=4" width="100px;" alt="Albaricoque19"/><br /><sub><b>@Albaricoque19</b></sub></a><br /><a href="https://github.com/Albaricoque19" title="Code">💻</a></td>
+  </tr>
 </table>
 
 ## Contribuir
