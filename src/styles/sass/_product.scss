@@ -1,0 +1,247 @@
+.product {
+    display: grid;
+    grid-template-areas: 
+    "product-image"
+    "product-shop";
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    background: #ffffff;
+    &__image-container {
+        width: 100%;
+        display: flex;
+        grid-area: product-image;
+        background: #fafafa;
+    }
+    &__image {
+        width: 100%;
+        
+    }
+    &__shop-container {
+        grid-area: product-shop;
+        padding: 0 20px;
+        margin-top: 59px;
+        margin-bottom: 40px;
+        line-height: 1.42857143;
+    }
+    &__shop-title {
+        font-size: 23px;
+        color: #333;
+        font-family: silka-bold;
+        margin-bottom: 17px;
+    }
+    &__shop-subtitle {
+        font-family: silka-semibold;
+        font-size: 15px;
+        color: #444;
+        margin-bottom: 10px;
+    }
+    &__shop-info {
+        color: #616161;
+        font-family: silka-medium,Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    &__shop-info-dimension{
+        font-family: silka-semibold;
+        font-size: 15px;
+        color: #444;
+        margin-bottom: 1.8rem;
+        &-number {
+            font-weight: 700;
+            color: #616161;
+            font-size: 14px;
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__shop-form {
+        line-height: 1.42857143;
+        .shop-form__question {
+            font-family: silka-semibold;
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .shop-form__answer-contianer {
+            line-height: 1.42857143;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+        .shop-form__answer {
+            padding: 7px 16px;
+            flex: calc(100% - 18px);
+            border-radius: 3px;
+            border: 1px solid #e8e8e8;
+            font-family: silka-medium;
+            font-size: 14px;
+            line-height: inherit;
+        }
+        .shop-form__answer-reference {
+            font-family: silka-regular;
+            font-size: 12px;
+            color: grey;
+        }
+        .shop-form__amount-contianer {
+            line-height: 1.42857143;
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .shop-form__amount-reference {
+            font-family: silka-semibold;
+            font-size: 15px;
+            color: #444;
+            margin-right: 17px;
+            display: flex;
+            align-items: center;
+        }
+        .shop-form__amount {
+            width: 80px;
+            text-align: center;
+            line-height: 38px;
+            color: grey;
+            font-size: 17px;
+            border-radius: 2px;
+            font-family: silka-bold;
+        }
+        .shop-form__amount-button {
+            height: 36px;
+            width: 46px;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            text-align: center;
+            line-height: 30px;
+            color: grey;
+            font-size: 20px;
+            border-radius: 2px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .shop-form__price {
+            padding: 0 20px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            font-family: silka-bold;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            &-number {
+                padding-left: 9px;
+                font-size:15px;
+            }
+        }
+        .shop-form__button {
+            margin: 0 20px;
+            font-size: 13px;
+            padding: 9px 22px;
+            background: red;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all .2s;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: silka-bold,Helvetica,Arial,sans-serif;
+            width: calc(100% - 40px);
+           
+        }
+    }
+}
+@media (min-width: 361px) {
+    .product {
+        &__shop-form{
+            .shop-form__price-number {
+                padding-left: 9px;
+                font-size:18px;
+            }
+        }
+    }
+}
+@media (min-width: 641px) {
+    .product {
+        &__image-container {
+            width: 100%;
+            display: flex;
+            grid-area: product-image;
+            justify-content: center;
+        }
+        &__image {
+            width: 312px;
+        }
+    }
+}
+@media (min-width: 771px) {
+    .product {
+        &__shop-title {
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+        &__shop-subtitle {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+        &__shop-info-dimension{
+            font-size: 17px;
+        } 
+        &__shop-form{
+            .shop-form__question {
+                font-size: 17px;
+            }
+            .shop-form__amount-reference {
+                font-size: 17px;
+                margin-right: 17px;
+            }
+            .shop-form__price{
+                font-size: 17px;
+                &-number {
+                    padding-left: 14px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+
+}
+@media (min-width: 981px) {
+    .product {
+
+        &__shop-form{
+            .shop-form__button {
+                font-size: 15px;
+                padding: 10px 20px;
+            }
+        }
+    }
+}
+@media (min-width: 1031px) {
+    .product {
+        &__shop-container {
+            padding: 0 38px;
+        }
+    }
+}
+@media (min-width: 1171px) {
+    .product {
+        grid-template-areas: 
+        "product-shop product-image";
+        grid-template-columns: 617px 1fr;
+        grid-template-rows: auto;
+        &__image {
+            width: 100%;
+        }
+        &__shop-container {
+            padding: 0 50px;
+        }
+        .shop-form__price {
+            padding: 0 50px;
+            margin-bottom: 1rem;
+        }
+        .shop-form__button {
+            margin: 0 50px;
+            width: calc(100% - 100px);
+           
+        }
+    }
+}

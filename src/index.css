@@ -1,13 +1,130 @@
+@font-face {
+  font-family: silka-black;
+  src: url('./assets/fonts/3383efa.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-bold;
+  src: url('./assets/fonts/4dc823e.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-extralight;
+  src: url('./assets/fonts/bee7e0c.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-light;
+  src: url('./assets/fonts/14fe374.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-medium;
+  src: url('./assets/fonts/d9802b8.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-regular;
+  src: url('./assets/fonts/36e009d.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-semibold;
+  src: url('./assets/fonts/a865393.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: silka-thin;
+  src: url('./assets/fonts/69b3497.woff') format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
 :root {
-    --primary-theme-color: #fafafa;
-    --secondary-theme-color: #FF0000;
-    --text-color: #676767;
-    --primary-highlight: #444444;
-    --border-radius: 0.25rem;
+  --primary-theme-color: #fafafa;
+  --secondary-theme-color: #ff0000;
+  --text-color: #676767;
+  --primary-highlight: #444444;
+  --border-radius: 0.25rem;
 }
 
 .body {
-    background-color: var(--primary-theme-color);
-    color: var(--primary-highlight);
-    margin: 0;
+  background-color: var(--primary-theme-color);
+  color: var(--primary-highlight);
+  margin: 0;
+  transition: transform 0.5s ease-out;
+}
+.body.menu-open {
+  transform: translateX(80%);
+  overflow-x: hidden;
+}
+
+@media (min-width: 450px) {
+  .body.menu-open {
+    transform: translateX(78%);
+  }
+}
+
+@media (min-width: 500px) {
+  .body.menu-open {
+    transform: translateX(70%);
+  }
+}
+
+@media (min-width: 550px) {
+  .body.menu-open {
+    transform: translateX(65%);
+  }
+}
+
+@media (min-width: 600px) {
+  .body.menu-open {
+    transform: translateX(55%);
+  }
+}
+
+@media (min-width: 650px) {
+  .body.menu-open {
+    transform: translateX(50%);
+  }
+}
+
+@media (min-width: 700px) {
+  .body.menu-open {
+    transform: translateX(45%);
+  }
+}
+
+@media (min-width: 750px) {
+  .body.menu-open {
+    transform: translateX(40%);
+  }
+}
+
+@media (min-width: 800px) {
+  .body.menu-open {
+    transform: translateX(35%);
+  }
 }
