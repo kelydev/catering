@@ -9,7 +9,7 @@ import { useAuth } from "../utils/AuthContext";
 
 export default function Navigation() {
 
-  const { firebaseLogout, user, loading} = useAuth();
+  const { logout, user, loading} = useAuth();
   const navigate = useNavigate();
   const [menuSatus, setMenuSatus] = useState(false);
 
@@ -26,10 +26,14 @@ export default function Navigation() {
 
     menuSatus ? setMenuSatus(false) : setMenuSatus(true);
   };
+
+  /*const userData = {
+    image:`https://ui-avatars.com/api/?name=${user.user.name}`
+  }*/
   
   const handleLogout = async () => {
     try {
-      await firebaseLogout();
+      await logout();
       navigate("/");
     } catch (error) {
       console.error(error.message);
@@ -159,7 +163,10 @@ export default function Navigation() {
         { user ? ( 
         <>
         <div className='nav__logout'>
-          <p className='nav__parrafo'>Bienvenida:{user.displayName}</p>
+          <p className='nav__parrafo'>Bienvenida:{user.user.name}
+            <img className="h-10 w-10 rounded-full" src={`https://ui-avatars.com/api/?name=${user.user.name}`} alt="" />
+          </p>
+          
           <button className="nav__button-login" onClick={handleLogout}>
             Cerrar Sesion
           </button>

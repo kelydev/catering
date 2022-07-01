@@ -1,65 +1,55 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { initializeApp } from "firebase/app";
-import firebaseConfig from "./FirebaseConfig";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  updateProfile,
-} from "firebase/auth";
+import React, { useState, useContext, createContext } from 'react';
+import Cookie from 'js-cookie';
+import axios from 'axios';
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const authContext = createContext();
+const AuthContext = createContext();
+
+export function ProviderAuth({ children }) {
+  const auth = useProvideAuth();
+  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
+}
 
 export const useAuth = () => {
-  const context = useContext(authContext);
-  if (!context) throw new Error("No hay Proveedor de Autenticacion");
-  return context;
+  return useContext(AuthContext);
 };
 
-export function AuthProvider({ children }) {
-
+function useProvideAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const firebaseRegisterUser = async (nombre,email,password) => {
-    const {user} = await createUserWithEmailAndPassword(auth, email, password);
-    return await updateProfile(user, {
-      displayName: nombre
-    });
+  const signIn = async (email, password) => {
+    const options = {
+      headers: {
+        accept: '*/*',
+        'Content-Type': 'application/json',
+      },
+    };
+    const { data: access_token} = await axios.post('http://localhost:8000/auth/signin',{ email, password }, options);
+    console.log(access_token);
+
+    if (access_token) {
+      console.log("entra");
+      const token = access_token.access_token;
+      console.log(token);
+      Cookie.set('token', token, { expires: 5 });
+
+      axios.defaults.headers.Authorization = `Bearer ${token}`;
+      const { data: user } = await axios.get("http://localhost:8000/users/profile");
+      setUser(user);
+      console.log(user.user.name);
+    }
   };
 
-  const firebaseLogIn = async (email, password) => {
-    return await signInWithEmailAndPassword(auth, email, password);
+  const logout = () => {
+    Cookie.remove('token');
+    setUser(null);
+    delete axios.defaults.headers.Authorization;
+    window.location.href = '/login';
   };
 
-  const firebaseLogout = async () => {
-    return await signOut(auth);
+  return {
+    user,
+    signIn,
+    logout,
   };
-
-  useEffect(() => {
-    const unsubuscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log({ currentUser });
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return () => unsubuscribe();
-  }, []);
-
-  return (
-    <authContext.Provider
-      value={{
-        firebaseRegisterUser,
-        firebaseLogIn,
-        user,
-        firebaseLogout,
-        loading,
-      }}
-    >
-      {children}
-    </authContext.Provider>
-  );
 }
