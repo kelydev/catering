@@ -1,28 +1,44 @@
 import {useNavigate, NavLink } from 'react-router-dom';
-import { useAuth } from "../utils/AuthContext";
+import useAuth from "../hooks/useAuth";
 import React, {useState} from 'react';
 import '../styles/sass/_login.scss';
+import axios from 'axios';
+//import Cookie from 'js-cookie';
 
 export default function LogIn() {
-    const auth = useAuth();
+
+    const { setAuth } = useAuth();
+
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const [user, setUser] = useState({
+    /*const [user, setUser] = useState({
         email: "",
         password: "",
-    });
+    });*/
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-          await auth.signIn(user.email, user.password);
+            let datos = {email, password }
+            const { data } = await axios.post('http://localhost:8000/auth/signin', datos);
+            const token = data.access_token;
+            //Cookie.set('token', token, { expires: 5 });
+            localStorage.setItem('token', data.access_token)
+            console.log(token);
+            setAuth(data.access_token);
+
+            //await auth.signIn(user.email, user.password);
           navigate("/");
         } catch (error) {
           setError(error.message);
         }
       };
     
-      const handleInput = ({ target: { value, name } }) => setUser({ ...user, [name]: value });
+      //const handleInput = ({ target: { value, name } }) => setUser({ ...user, [name]: value });
   
       return (
       <>
@@ -35,11 +51,11 @@ export default function LogIn() {
                           <b><NavLink to='/sigup' className='login__register'> unete ahora</NavLink></b>
                       </p>
                       <div className='input-groups'>
-                          <input type='email' id='email' name='email' required className='input' onChange={handleInput}/>
+                          <input id='email' type='email' name='email' className='input' value={email} onChange={e => setEmail(e.target.value)}/>
                           <label className='label'>correo electronico</label>
                       </div>
                       <div className='input-groups'>
-                          <input type='password' id='password' name='password' required className='input' onChange={handleInput}/>
+                      <input id='password' type='password' name='password' className='input' value={password} onChange = {e => setPassword(e.target.value)}/>
                           <label className='label'>contraseña</label>
                       </div >
                       <button className='login__button--sesion' type="submit">iniciar sesion</button>

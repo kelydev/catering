@@ -30,7 +30,6 @@ export default function Category() {
   useEffect(() => {
     const items = document.querySelectorAll(".category__list-item");
     const imgItems = document.querySelectorAll(".category__list-link-image");
-    console.log("hola");
     items.forEach((item, index) => {
       item.addEventListener("click", () => {
         items.forEach((item, indexItem) => {

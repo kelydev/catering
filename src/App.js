@@ -15,13 +15,13 @@ import { Routes, Route } from "react-router-dom";
 import Product from "./pages/Product";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-import { ProviderAuth } from './utils/AuthContext';
+import {AuthProvider} from './utils/AuthProvider';
 
 function App() {
   return (
     <>
     <Provider store={store}>
-    <ProviderAuth>
+    <AuthProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Main />}>
@@ -40,9 +40,9 @@ function App() {
         </Route>
       </Routes>
       <Footer />
-      </ProviderAuth>
+    </AuthProvider>
     </Provider>
-    </>
+  </>
   );
 }
 

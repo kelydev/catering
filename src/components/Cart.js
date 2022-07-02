@@ -37,7 +37,7 @@ const Cart = () => {
         console.log(data.data.prices )
       } catch (error) {
         console.log(error);
-        console.log('sdass');
+        console.log('sdassxcxc');
       }
     };
     obtener();

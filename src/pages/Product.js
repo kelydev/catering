@@ -38,7 +38,7 @@ export default function Product() {
     e.preventDefault()
     try {
       let data = {
-        product_id:3,
+        product_id:2,
         quantity:amount
       }
       const respuesta = await axios.put('http://localhost:8000/shoppingCart', data);
