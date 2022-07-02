@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { updateStatusAction } from "../redux/actions/cartActions";
 import {useNavigate, NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -15,8 +16,9 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [valor, setValor] = useState([]);
 
+  const dispatch = useDispatch();
   
-
+  
   useEffect(() => {
 
     const obtener = async () => {
@@ -42,7 +44,6 @@ const Cart = () => {
     obtener();
   }, [status]);
 
-  const dispatch = useDispatch();
 
   console.log(products)
   /*console.log(valor)
@@ -63,6 +64,7 @@ const Cart = () => {
         const respuesta = await axios.delete(`http://localhost:8000/shoppingCart/${id}`);
         console.log(respuesta);
       //dispatch(cartProductAddAction(date))
+        dispatch(updateStatusAction("dd"))
     } catch (error) {
       setError(error.message);
     }
