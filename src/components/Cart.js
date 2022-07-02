@@ -1,29 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { cartProductAddAction, cartProductUpdateAction } from "../redux/actions/cartActions";
+import {useNavigate, NavLink} from 'react-router-dom';
+//import { cartProductAddAction, cartProductUpdateAction } from "../redux/actions/cartActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "../styles/sass/_cart.scss"
 
-const Cart = () => {
-  const { products } = useSelector((state) => {
-    return state.cartReducer;
-  });
+import axios from 'axios';
 
-  const [productList, setProductList] = useState([])
+const Cart = () => {
+  /*const { respuesta } = useSelector((state) => {
+    return state.cartReducer;
+  });*/
+  const [error, setError] = useState("");
+  const [products, setProducts] = useState([]);
+  const [valor, setValor] = useState([]);
+
+  //const dispatch = useDispatch();
 
   useEffect(() => {
-    setProductList(products)
-  }, [products])
 
-  const dispatch = useDispatch();
+    (async () => {
+       const datass = await axios.get('http://localhost:8000/shoppingCart');
+       setProducts(datass.data.items)
+       setValor(datass.data.prices)
+    })();
+  
+  }, []);
+
+  console.log(products)
+  console.log(valor)
 
   const handleCartShow = () => {
-    document.getElementById("cartItems").classList.toggle("active")
-    const nav = document.getElementById('nav')
-    nav.classList.toggle("active");
+      document.getElementById("cartItems").classList.toggle("active")
+      const nav = document.getElementById('nav')
+      nav.classList.toggle("active");
+      //dispatch(cartProductAddAction(date))*/
   }
 
+  const removeProductCart = async (id) => {
+    try {
+        const respuesta = await axios.delete(`http://localhost:8000/shoppingCart/${id}`);
+        console.log(respuesta);
+      //dispatch(cartProductAddAction(date))
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+  
   return (
     <>
       <div id="cartItems" className="cart__items">
@@ -33,16 +57,26 @@ const Cart = () => {
           products.map((product, index) => (
             <div className="cart__items-item" key={index} >
               <span>
-                {product.name}
+                {product.product.name}
               </span>
               <span>
-              s/ {product.priceTotal.toFixed(2)}
+                {product.quantity}
               </span>
+              <br></br>
+              <button className="cart__items-alert">mod</button>
+              <button onClick={() => removeProductCart(product.product_id)} className="cart__items-alert">x</button>
             </div>
+            
           ))
           :
           <div className="cart__items-alert">No a agregado nada al carrito</div>
         }
+        <br></br>
+        <label>Subtotal {valor.subtotal}</label>
+        <label>Total {valor.total}</label>
+        <div className="cart__items-alert">
+          <NavLink to="/orden" className="nav__menu-hidden-link">Realizar compra</NavLink>
+        </div>
       </div>
       <button onClick={() => {
         handleCartShow()

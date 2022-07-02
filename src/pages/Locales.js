@@ -21,12 +21,6 @@ export default function Locales() {
             {value: '2', label: 'Novedades'}
     ]
 
-    /*const options = []
-    for (let i=0 ; i<storesection.length ; i++) {
-        
-        options.push(storesection[i].name)
-    }*/
-
     console.log(options);
 
     const [store, setStore] = useState([]);

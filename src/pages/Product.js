@@ -3,11 +3,14 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import "../styles/sass/_product.scss";
 import { cartProductAddAction, cartProductUpdateAction } from "../redux/actions/cartActions";
+import axios from 'axios';
 
 export default function Product() {
+  const [error, setError] = useState("");
   let location = useLocation()
   const dispatch = useDispatch()
   console.log(location)
+
   const productBuy = {
     name: location.state.name,
     description: location.state.description,
@@ -31,17 +34,29 @@ export default function Product() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const date = {
+    try {
+      let data = {
+        product_id:3,
+        quantity:amount
+      }
+      const respuesta = await axios.put('http://localhost:8000/shoppingCart', data);
+      console.log(respuesta);
+      //dispatch(cartProductAddAction(date))
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+    /*const date = {
       ...productBuy,
       amount,
-      priceTotal: price,
-      dedicatoria: e.target.dedicatoria.value
+      //priceTotal: price,
+      //dedicatoria: e.target.dedicatoria.value
     }
     dispatch(cartProductAddAction(date))
-    console.log(e.target.dedicatoria.value)
-  }
+    console.log(e.target.dedicatoria.value)*/
+  
 
   return (
     <section className="product">
@@ -88,7 +103,7 @@ export default function Product() {
           <h4 className="shop-form__price">
             precio:<strong className="shop-form__price-number">s/ {price.toFixed(2)}</strong>
           </h4>
-          <button className="shop-form__button" type="submit">
+          <button className="shop-form__button" type="submit" >
             agregar al carrito
           </button>
         </form>

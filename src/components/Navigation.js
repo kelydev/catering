@@ -164,7 +164,7 @@ export default function Navigation() {
         <>
         <div className='nav__logout'>
           <p className='nav__parrafo'>Bienvenida:{user.user.name}
-            <img className="h-10 w-10 rounded-full" src={`https://ui-avatars.com/api/?name=${user.user.name}`} alt="" />
+            <img className="h-10 w-10 rounded-full" alt="" />
           </p>
           
           <button className="nav__button-login" onClick={handleLogout}>
@@ -186,3 +186,4 @@ export default function Navigation() {
     </>
   );
 }
+/**src={`https://ui-avatars.com/api/?name=${user.user.name}`} */
