@@ -1,25 +1,22 @@
-import { cartProductAdd, cartProductUpdate } from "../actions/cartActions";
+import { statusUpadate } from "../actions/cartActions";
 
-const initialCartState = {
-  products : []
-}
+const initialCartState = false
 
 export const cartReducer = (state = initialCartState, action) => {
-  const { products } = state;
+  const status = state;
   const { type, payload } = action;
 
   switch (type) {
-    case cartProductAdd:
-      const newDate = products
-      newDate.push(payload)
+    case statusUpadate:
+      const newStatus = !status
       return {
-        products: newDate
+        status: newStatus
       }
-    case cartProductUpdate:
-      return {
-        ...state,
-        products: payload
-      }
+    // case cartProductUpdate:
+    //   return {
+    //     ...state,
+    //     products: payload
+    //   }
     default:
       return state;
   }

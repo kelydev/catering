@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {useNavigate, NavLink} from 'react-router-dom';
-//import { cartProductAddAction, cartProductUpdateAction } from "../redux/actions/cartActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import "../styles/sass/_cart.scss"
@@ -9,14 +8,14 @@ import "../styles/sass/_cart.scss"
 import axios from 'axios';
 
 const Cart = () => {
-  /*const { respuesta } = useSelector((state) => {
+  const status = useSelector((state) => {
     return state.cartReducer;
-  });*/
+  });
   const [error, setError] = useState("");
   const [products, setProducts] = useState([]);
   const [valor, setValor] = useState([]);
 
-  //const dispatch = useDispatch();
+  
 
   useEffect(() => {
 
@@ -41,7 +40,9 @@ const Cart = () => {
       }
     };
     obtener();
-  }, []);
+  }, [status]);
+
+  const dispatch = useDispatch();
 
   console.log(products)
   /*console.log(valor)

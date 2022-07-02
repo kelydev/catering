@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import "../styles/sass/_product.scss";
-import { cartProductAddAction, cartProductUpdateAction } from "../redux/actions/cartActions";
+import { updateStatusAction } from "../redux/actions/cartActions";
 import axios from 'axios';
 
 export default function Product() {
@@ -43,7 +43,7 @@ export default function Product() {
       }
       const respuesta = await axios.put('http://localhost:8000/shoppingCart', data);
       console.log(respuesta);
-      //dispatch(cartProductAddAction(date))
+      dispatch(updateStatusAction("dd"))
     } catch (error) {
       setError(error.message);
     }
