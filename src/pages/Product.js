@@ -38,10 +38,10 @@ export default function Product() {
     e.preventDefault()
     try {
       let data = {
-        product_id:2,
-        quantity:amount
+        product_id:4,
+        quantity:2
       }
-      const respuesta = await axios.put('http://localhost:8000/shoppingCart', data);
+      const respuesta = await axios.put('https://immense-lowlands-06812.herokuapp.com/shoppingCart', data);
       console.log(respuesta);
       dispatch(updateStatusAction("dd"))
     } catch (error) {

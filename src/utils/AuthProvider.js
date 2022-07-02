@@ -1,20 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
 import Cookie from 'js-cookie';
-import { faCommentsDollar } from "@fortawesome/free-solid-svg-icons";
-/*import { initializeApp } from "firebase/app";
-import firebaseConfig from "./FirebaseConfig";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  updateProfile,
-} from "firebase/auth";*/
 
-//const app = initializeApp(firebaseConfig);
-//const auth = getAuth(app);
 
 const AuthContext = createContext();
 
@@ -23,20 +10,6 @@ const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState({})
     const [loading, setLoading] = useState(true);
 
-    /*const firebaseRegisterUser = async (nombre,email,password) => {
-    const {user} = await createUserWithEmailAndPassword(auth, email, password);
-        return await updateProfile(user, {
-            displayName: nombre
-        });
-    };
-
-    const firebaseLogIn = async (email, password) => {
-        return await signInWithEmailAndPassword(auth, email, password);
-    };
-
-    const firebaseLogout = async () => {
-        return await signOut(auth);
-    };*/
     useEffect(() => {
         const autenticar = async () => {
             try {
@@ -67,15 +40,10 @@ const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider
             value={{
-                setAuth,
+                auth,
                 logout,
                 loading,
-            //firebaseRegisterUser,
-            //firebaseLogIn,
-            //user,
-            //firebaseLogout,
-            //loading,
-        }}
+            }}
         >
             {children}
         </AuthContext.Provider>

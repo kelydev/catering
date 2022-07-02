@@ -11,11 +11,6 @@ export default function LogIn() {
 
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    /*const [user, setUser] = useState({
-        email: "",
-        password: "",
-    });*/
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,14 +19,12 @@ export default function LogIn() {
         setError("");
         try {
             let datos = {email, password }
-            const { data } = await axios.post('http://localhost:8000/auth/signin', datos);
+            const { data } = await axios.post('https://immense-lowlands-06812.herokuapp.com/auth/signin', datos);
             const token = data.access_token;
             //Cookie.set('token', token, { expires: 5 });
             localStorage.setItem('token', data.access_token)
             console.log(token);
             setAuth(data.access_token);
-
-            //await auth.signIn(user.email, user.password);
           navigate("/");
         } catch (error) {
           setError(error.message);

@@ -26,7 +26,7 @@ export default function Locales() {
     const [store, setStore] = useState([]);
 
     useEffect (()=>{
-        fetch("http://localhost:8000/store")
+        fetch("https://immense-lowlands-06812.herokuapp.com/store")
         .then(response=> response.json())
         .then(dat => setStore(dat));
     },[]);

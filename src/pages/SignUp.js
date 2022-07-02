@@ -18,7 +18,7 @@ export default function SignUp() {
         setError("");
         try {
             let data = {name, last_name, email, password }
-            const respuesta = await axios.post('http://localhost:8000/auth/signup', data);
+            const respuesta = await axios.post('https://immense-lowlands-06812.herokuapp.com/auth/signup', data);
             console.log(respuesta);
             navigate("/");
         } catch (error) {

@@ -20,8 +20,8 @@ import {AuthProvider} from './utils/AuthProvider';
 function App() {
   return (
     <>
-    <Provider store={store}>
     <AuthProvider>
+    <Provider store={store}>
       <Header />
       <Routes>
         <Route path="/" element={<Main />}>
@@ -40,8 +40,8 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      </Provider>
     </AuthProvider>
-    </Provider>
   </>
   );
 }

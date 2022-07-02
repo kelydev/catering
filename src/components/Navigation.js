@@ -168,7 +168,6 @@ export default function Navigation() {
           <p className='nav__parrafo'>Bienvenida:{}
             <img className="h-10 w-10 rounded-full" alt="" />
           </p>
-          
           <button className="nav__button-login" onClick={handleLogout}>
             Cerrar Sesion
           </button>
