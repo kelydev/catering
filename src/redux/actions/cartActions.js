@@ -1,9 +1,9 @@
-export const cartProductAdd = 'cart/product-add'
+export const statusUpadate = 'status/update'
 export const cartProductUpdate = 'cart/product-update'
 
-export const cartProductAddAction = (product) => {
+export const updateStatusAction = (product) => {
   return ({
-    type: cartProductAdd,
+    type: statusUpadate,
     payload: product
   })
 }
