@@ -20,16 +20,35 @@ const Cart = () => {
 
   useEffect(() => {
 
-    (async () => {
-       const datass = await axios.get('http://localhost:8000/shoppingCart');
-       setProducts(datass.data.items)
-       setValor(datass.data.prices)
-    })();
-  
+    const obtener = async () => {
+      try {
+        /*const token = localStorage.getItem('token');
+        if(!token) return 
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:`Bearer ${token}`
+          }
+        } */
+        const data = await axios.get('http://localhost:8000/shoppingCart')
+        setProducts(data.data.items)
+        setValor(data.data.prices)
+        console.log(data.data.items)
+        console.log(data.data.prices )
+      } catch (error) {
+        console.log(error);
+        console.log('sdass');
+      }
+    };
+    obtener();
   }, []);
 
   console.log(products)
-  console.log(valor)
+  /*console.log(valor)
+
+  const datass = await axios.get('http://localhost:8000/shoppingCart');
+  setProducts(datass.data.items)
+  setValor(datass.data.prices)*/
 
   const handleCartShow = () => {
       document.getElementById("cartItems").classList.toggle("active")
