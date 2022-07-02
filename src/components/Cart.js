@@ -22,16 +22,21 @@ const Cart = () => {
   useEffect(() => {
 
     const obtener = async () => {
-      try {
-        /*const token = localStorage.getItem('token');
-        if(!token) return 
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:`Bearer ${token}`
+      const token = localStorage.getItem('token');
+
+      let config = {};
+  
+        if(token) {
+          config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+            }
           }
-        } */
-        const data = await axios.get('https://immense-lowlands-06812.herokuapp.com/shoppingCart')
+        }
+      console.log(config);
+      try {
+        const data = await axios.get('https://immense-lowlands-06812.herokuapp.com/shoppingCart', config)
         setProducts(data.data.items)
         setValor(data.data.prices)
         console.log(data.data.items)
@@ -45,22 +50,29 @@ const Cart = () => {
   }, [status]);
 
   console.log(products)
-  /*console.log(valor)
-
-  const datass = await axios.get('http://localhost:8000/shoppingCart');
-  setProducts(datass.data.items)
-  setValor(datass.data.prices)*/
 
   const handleCartShow = () => {
       document.getElementById("cartItems").classList.toggle("active")
       const nav = document.getElementById('nav')
       nav.classList.toggle("active");
-      //dispatch(cartProductAddAction(date))*/
   }
 
   const removeProductCart = async (id) => {
+    const token = localStorage.getItem('token');
+
+    let config = {};
+
+      if(token) {
+        config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          }
+        }
+      }
+    console.log(config);
     try {
-        const respuesta = await axios.delete(`http://localhost:8000/shoppingCart/${id}`);
+        const respuesta = await axios.delete(`https://immense-lowlands-06812.herokuapp.com/shoppingCart/${id}`,config);
         console.log(respuesta);
       //dispatch(cartProductAddAction(date))
         dispatch(updateStatusAction("dd"))
@@ -68,6 +80,8 @@ const Cart = () => {
       setError(error.message);
     }
   }
+
+  
   
   return (
     <>

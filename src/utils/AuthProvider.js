@@ -1,7 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
-import Cookie from 'js-cookie';
-
 
 const AuthContext = createContext();
 
@@ -11,27 +9,33 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+
         const autenticar = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                if(!token) {
-                    return console.log('nono hay token');
+            const token = localStorage.getItem('token');
+            if(!token) {
+                return console.log('nono hay token');
+            }
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
                 }
-                console.log('si hay token');
-                axios.defaults.headers.Authorization = `Bearer ${token}`;
-                const { data } = await axios.get("http://localhost:8000/users/profile");
+            }
+            try {
+                const { data } = await axios.get("https://immense-lowlands-06812.herokuapp.com/users/profile", config);
                 console.log(data);
-                setAuth(data);
+                setAuth(data)
+
             } catch (error) {
                 console.log(error);
             }
         }
         autenticar();
+      
     }, []);
 
     const logout = () => {
-        //localStorage.removeItem('token');
-        Cookie.remove('token')
+        localStorage.removeItem('token');
         setAuth(null);
         delete axios.defaults.headers.Authorization;
         window.location.href = '/login';
@@ -40,6 +44,7 @@ const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider
             value={{
+                setAuth,
                 auth,
                 logout,
                 loading,

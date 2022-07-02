@@ -36,27 +36,33 @@ export default function Product() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const token = localStorage.getItem('token');
+
+    let config = {};
+
+      if(token) {
+        config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          }
+        }
+      }
+    console.log(config);
+     
     try {
       let data = {
-        product_id:4,
-        quantity:2
+        product_id:6,
+        quantity:amount
       }
-      const respuesta = await axios.put('https://immense-lowlands-06812.herokuapp.com/shoppingCart', data);
+      const respuesta = await axios.put('https://immense-lowlands-06812.herokuapp.com/shoppingCart',data, config);
       console.log(respuesta);
+
       dispatch(updateStatusAction("dd"))
     } catch (error) {
       setError(error.message);
     }
   }
-    /*const date = {
-      ...productBuy,
-      amount,
-      //priceTotal: price,
-      //dedicatoria: e.target.dedicatoria.value
-    }
-    dispatch(cartProductAddAction(date))
-    console.log(e.target.dedicatoria.value)*/
-  
 
   return (
     <section className="product">

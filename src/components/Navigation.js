@@ -6,15 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, brands } from "@fortawesome/fontawesome-svg-core/import.macro";
 import Cart from './Cart';
 import useAuth  from "../hooks/useAuth";
-import userEvent from '@testing-library/user-event';
 
 export default function Navigation() {
 
   const navigate = useNavigate();
   const [menuSatus, setMenuSatus] = useState(false);
 
-  const { setAuth, logout} = useAuth();
-  console.log(setAuth);
+  const { auth, logout} = useAuth();
+
+  
+
+  console.log(auth);
 
   const openMenu = (e) => {
     const body = document.getElementById("body");
@@ -42,6 +44,8 @@ export default function Navigation() {
       console.error(error.message);
     }
   };
+
+  /*if (loading) return <h1>Loading</h1>;*/
 
   return (
     <>
@@ -162,10 +166,10 @@ export default function Navigation() {
           </ul>
         </section>
         <Cart/>
-        { useAuth != [] ? ( 
+        { auth && auth.user  ? ( 
         <>
         <div className='nav__logout'>
-          <p className='nav__parrafo'>Bienvenida:{}
+          <p className='nav__parrafo'>Bienvenida:{auth.user.name}
             <img className="h-10 w-10 rounded-full" alt="" />
           </p>
           <button className="nav__button-login" onClick={handleLogout}>

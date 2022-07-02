@@ -1,9 +1,8 @@
 import {useNavigate, NavLink } from 'react-router-dom';
-import useAuth from "../hooks/useAuth";
 import React, {useState} from 'react';
 import '../styles/sass/_login.scss';
 import axios from 'axios';
-//import Cookie from 'js-cookie';
+import useAuth from "../hooks/useAuth"; /* con esta variable tenemos aceso a lo que esta en auth provider*/
 
 export default function LogIn() {
 
@@ -21,10 +20,8 @@ export default function LogIn() {
             let datos = {email, password }
             const { data } = await axios.post('https://immense-lowlands-06812.herokuapp.com/auth/signin', datos);
             const token = data.access_token;
-            //Cookie.set('token', token, { expires: 5 });
-            localStorage.setItem('token', data.access_token)
-            console.log(token);
-            setAuth(data.access_token);
+            localStorage.setItem('token', token)
+            setAuth(data);
           navigate("/");
         } catch (error) {
           setError(error.message);
